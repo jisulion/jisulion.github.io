@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>晓晴的博客</title>
+  <title>vue生命周期 | 晓晴的博客</title>
   <meta name="keywords" content="">
-  <meta name="description" content="晓晴的博客">
+  <meta name="description" content="vue生命周期 | 晓晴的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="vuevue常用ui框架pc端element iview移动端 vant cube 为什么使用ui框架使用别人封装好的框架 可以大大的节省开发时间 提升开发效率缺点也很明显 不能定制需要 有时候与设计图差异大当对样式没有很大需求的时候(后台管理系统) pc端ui框架 elementElement，一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库。它的开发团队是饿了么。 el">
 <meta property="og:type" content="article">
@@ -57,7 +57,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/tjl.jpg" />
@@ -305,13 +305,43 @@
         </div>
     </div>
 </aside>
-<div class="post index">
-    <!-- 主题内容 -->
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-vue生命周期" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一个刚进前端门的码农"><span class="toc-text">一个刚进前端门的码农</span></a></li></ol>
+        <h1 class="article-title">vue生命周期</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-03-31 16:35:01'>2020-03-30 15:24</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义指令"><span class="toc-text">自定义指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用指令钩子函数"><span class="toc-text">常用指令钩子函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用指令钩子参数"><span class="toc-text">常用指令钩子参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指令简写"><span class="toc-text">指令简写</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命周期"><span class="toc-text">生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#生命周期定义"><span class="toc-text">生命周期定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生命周期钩子"><span class="toc-text">生命周期钩子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生命周期函数分类"><span class="toc-text">生命周期函数分类</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -324,20 +354,67 @@
     }
 </style>
 </div>
-            <h1 id="一个刚进前端门的码农"><a href="#一个刚进前端门的码农" class="headerlink" title="一个刚进前端门的码农"></a>一个刚进前端门的码农</h1><!-- ##  -->
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h2><p>常见的指令如 v-text v-model都是vue封装好的语法糖<br>我们也可以封装自己的指令(用于对dom执行某些操作)<br>封装自己的指令是通过directives来执行的<br>指令的主要作用就是可以操作dom</p>
+<h3 id="常用指令钩子函数"><a href="#常用指令钩子函数" class="headerlink" title="常用指令钩子函数"></a>常用指令钩子函数</h3><ul>
+<li>bind：<br>只调用一次，指令第一次绑定到元素时调用(这个时候还没插入dom)。在这里可以进行一次性的初始化设置。(不可以执行input的focus 因为指令绑定到元素 但元素还没插入到dom)<br>bind：进行样式修改之类的操作</li>
+<li>inserted：<br>当指令绑定的元素插入到dom时执行的钩子函数<br>inserted：进行JS中的有关操作<h3 id="常用指令钩子参数"><a href="#常用指令钩子参数" class="headerlink" title="常用指令钩子参数"></a>常用指令钩子参数</h3></li>
+<li>el<br>指代的是绑定自定义指令的那个元素  </li>
+<li>binding<br>当前自定义指令对象 <ul>
+<li>name<br>指令名，不包括 v- 前缀</li>
+<li>value<br>指令的绑定值，例如：v-my-directive=”1 + 1” 中，绑定值为 2</li>
+<li>expression<br>字符串形式的指令表达式。例如 v-my-directive=”1 + 1” 中，表达式为 “1 + 1”。</li>
+</ul>
+</li>
+</ul>
+<h3 id="指令简写"><a href="#指令简写" class="headerlink" title="指令简写"></a>指令简写</h3><p>在很多时候，在 bind 和 update 时触发相同行为，而不关心其它的钩子,可以把指令简写 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">Vue.directive(<span class="string">'color-swatch'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(el, binding)</span> </span>&#123;</span></span><br><span class="line">  el.style.backgroundColor = binding.value</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"05-vue/lib/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-aaa</span> <span class="attr">v-if</span>=<span class="string">"isShow"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"isShow = !isShow"</span>&gt;</span></span><br><span class="line">          取反</span><br><span class="line">        <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">var</span> that ;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">        el:<span class="string">"#app"</span>,</span></span><br><span class="line">        data()&#123;</span><br><span class="line"><span class="actionscript">          <span class="keyword">return</span> &#123;</span></span><br><span class="line">            info:111,</span><br><span class="line"><span class="actionscript">            isShow:<span class="literal">false</span></span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        created () &#123;</span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(<span class="string">"我是混入的对象!"</span>);</span></span><br><span class="line"><span class="actionscript">          that = <span class="keyword">this</span>;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        directives: &#123;</span><br><span class="line">          aaa(el)&#123;</span><br><span class="line"><span class="javascript">              <span class="built_in">console</span>.log(el,<span class="keyword">this</span>,that);</span></span><br><span class="line"><span class="actionscript">               that.$nextTick(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line">                el.focus()</span><br><span class="line">                &#125;)</span><br><span class="line"><span class="actionscript">              <span class="comment">// setTimeout(()=&gt;&#123;</span></span></span><br><span class="line"><span class="actionscript">              <span class="comment">//   el.focus()</span></span></span><br><span class="line"><span class="actionscript">              <span class="comment">// &#125;)</span></span></span><br><span class="line">              </span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><h3 id="生命周期定义"><a href="#生命周期定义" class="headerlink" title="生命周期定义"></a>生命周期定义</h3><p>从Vue实例创建、运行、到销毁期间，总是伴随着各种各样的事件，这些事件，统称为生命周期(生命周期钩子)！</p>
+<h3 id="生命周期钩子"><a href="#生命周期钩子" class="headerlink" title="生命周期钩子"></a>生命周期钩子</h3><p>生命周期钩子就是生命周期事件的别名；常用两个 created mounted 带before的钩子都没啥用 created mounted用作获取数据</p>
+<h3 id="生命周期函数分类"><a href="#生命周期函数分类" class="headerlink" title="生命周期函数分类"></a>生命周期函数分类</h3><ul>
+<li><p>创建期间的生命周期函数：</p>
+<ul>
+<li>beforeCreate：实例刚在内存中被创建出来，此时，还没有初始化好 data 和 methods 属性</li>
+<li>created：实例已经在内存中创建OK，此时 data 和 methods 已经创建OK，此时还没有开始 编译模板(模板 比如<code>{}</code>)</li>
+<li>beforeMount：此时已经完成了模板的编译，但是还没有挂载到页面中</li>
+<li>mounted：此时，已经将编译好的模板，挂载到了页面指定的容器中显示</li>
+</ul>
+</li>
+<li><p>运行期间的生命周期函数：</p>
+<ul>
+<li>beforeUpdate：状态更新之前执行此函数， 此时 data 中的状态值是最新的，但是界面上显示的 数据还是旧的，因为此时还没有开始重新渲染DOM节点</li>
+<li>updated：实例更新完毕之后调用此函数，此时 data 中的状态值 和 界面上显示的数据，都已经完成了更新，界面已经被重新渲染好了！</li>
+</ul>
+</li>
+<li><p>销毁期间的生命周期函数：</p>
+<ul>
+<li>beforeDestroy：实例销毁之前调用。在这一步，实例仍然完全可用。</li>
+<li>destroyed：Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。<br><img src="./imgs/imgs.png" alt=" " title="生命周期图解"></li>
+</ul>
+</li>
+</ul>
+
+      
+    <hr> 
+    <!-- <span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span> -->
+    </div>
+</article>
+
+<!--  -->
 
 
 
 
-<p><code>正在迷茫困惑的探索着网页的秘密</code></p>
-<!-- 到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。
 
-本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次 -->
+    
 
-        </article>
-        <!-- 打赏功能 -->
-        <!--  -->
-        
+<!-- 
+ -->
+
     </div>
     <div class="copyright">
         <!-- <p class="footer-entry">©2016-2019 Yelog</p>
