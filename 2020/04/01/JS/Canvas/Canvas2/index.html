@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS/Canvas/Canvas2 | 晓晴的博客</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="JS/Canvas/Canvas2 | 晓晴的博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="移动端事件 touch  只有移动端才有touch事件   touchstart：当手指触碰屏幕时候发生。不管当前有多少只手指 touchmove：当手指在屏幕上滑动时连续触发。通常我们再滑屏页面，会调用 event.preventDefault() 阻止默认情况的发生：阻止页面滚动 touchend：当手指离开屏幕时触发 touchcancel：系统停止跟踪触摸时候会触发。例如在触摸过程中突然页">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS&#x2F;移动端操作&#x2F;Mobile2">
+<meta property="og:url" content="http://jisulion.github.io/2020/04/01/JS/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%93%8D%E4%BD%9C/Mobile2/index.html">
+<meta property="og:site_name" content="晓晴的博客">
+<meta property="og:description" content="移动端事件 touch  只有移动端才有touch事件   touchstart：当手指触碰屏幕时候发生。不管当前有多少只手指 touchmove：当手指在屏幕上滑动时连续触发。通常我们再滑屏页面，会调用 event.preventDefault() 阻止默认情况的发生：阻止页面滚动 touchend：当手指离开屏幕时触发 touchcancel：系统停止跟踪触摸时候会触发。例如在触摸过程中突然页">
+<meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2020-04-01T03:27:45.369Z">
+<meta property="article:modified_time" content="2019-11-29T01:12:18.000Z">
+<meta property="article:author" content="凌晨晓晴">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/tjl.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/tjl.jpg" />
+</a>
+<div class="author">
+    <span>凌晨晓晴</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/jisulion/lion" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:464217008@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=464217008&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(34)</small></div></li>
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(16)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="34">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="以 in: 开头进行全文搜索" />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color2">nodejs</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">es6</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Vue</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/2020/03/16/hello/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="hello">hello</span>
+            <span class="post-date" title="2020-03-16 13:58:53">2020/03/16</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/27/nodeJS/"
+           data-tag="nodejs"
+           data-author="" >
+            <span class="post-title" title="Node介绍">Node介绍</span>
+            <span class="post-date" title="2020-03-27 18:28:53">2020/03/27</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vuex/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vuex">vuex</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/es6/"
+           data-tag="es6"
+           data-author="" >
+            <span class="post-title" title="es6入门">es6入门</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vue%E5%85%A5%E9%97%A8%E7%AE%80%E5%8D%95%E8%AF%AD%E6%B3%95%E4%BB%8B%E7%BB%8D/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue入门">vue入门</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/28/%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%80%E4%BA%9B%E8%BF%94%E5%9B%9E%E5%80%BC/"
+           data-tag="es6"
+           data-author="" >
+            <span class="post-title" title="es6的一些分类">es6的一些分类</span>
+            <span class="post-date" title="2020-03-28 16:38:11">2020/03/28</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/%E9%AB%98%E7%BA%A7%E8%B7%AF%E7%94%B1/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue-router路由高级">vue-router路由高级</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/%E4%B8%80%E4%BA%9Bui%E6%A1%86%E6%9E%B6/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue常用ui框架">vue常用ui框架</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vuex%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vuex辅助函数">vuex辅助函数</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vue%E4%B8%80%E4%BA%9B%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="axios">axios</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue生命周期">vue生命周期</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vue%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="nuxt服务端渲染与客户端渲染">nuxt服务端渲染与客户端渲染</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vue%E8%84%9A%E6%89%8B%E6%9E%B6/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue-cli(脚手架)">vue-cli(脚手架)</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/30/vue%E6%8F%92%E6%A7%BD%E5%8F%8A%E5%8A%A8%E7%94%BB%E6%8F%92%E4%BB%B6/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue插槽及动画插件">vue插槽及动画插件</span>
+            <span class="post-date" title="2020-03-30 16:03:53">2020/03/30</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vue%E8%B7%AF%E7%94%B1/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue路由">vue路由</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vue%E7%BB%93%E6%9E%84%E4%BB%8B%E7%BB%8D/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue结构">vue结构</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/webpack/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="wepack">wepack</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/node/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/node">JS/node</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/%E6%AD%A3%E5%88%99/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/正则">JS/正则</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/AJAX/AJAX2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/AJAX/AJAX2">JS/AJAX/AJAX2</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/BOM/BOM%20new/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/BOM/BOM new">JS/BOM/BOM new</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/BOM/BOM%20window%E5%B1%9E%E6%80%A7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/BOM/BOM window属性">JS/BOM/BOM window属性</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/BOM/BOM%20%E4%B8%89%E5%A4%A7%E5%AE%B6%E6%97%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/BOM/BOM 三大家族">JS/BOM/BOM 三大家族</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/BOM/BOM%20%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/BOM/BOM 事件对象">JS/BOM/BOM 事件对象</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/Canvas/Canvas/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/Canvas/Canvas">JS/Canvas/Canvas</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/Canvas/Canvas2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/Canvas/Canvas2">JS/Canvas/Canvas2</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/JS%E9%AB%98%E7%BA%A7/%E5%AF%B9%E8%B1%A1%E7%BB%A7%E6%89%BF/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/JS高级/对象继承">JS/JS高级/对象继承</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/JS%E9%AB%98%E7%BA%A7/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/JS高级/面向对象">JS/JS高级/面向对象</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/JS%E9%AB%98%E7%BA%A7/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A12/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/JS高级/面向对象2">JS/JS高级/面向对象2</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/html5/HC1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/html5/HC1">JS/html5/HC1</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/html5/HC2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/html5/HC2">JS/html5/HC2</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%93%8D%E4%BD%9C/Mobile2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/移动端操作/Mobile2">JS/移动端操作/Mobile2</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%93%8D%E4%BD%9C/Mobile3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/移动端操作/Mobile3">JS/移动端操作/Mobile3</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%93%8D%E4%BD%9C/mobile1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/移动端操作/mobile1">JS/移动端操作/mobile1</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-JS/Canvas/Canvas2" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">JS/Canvas/Canvas2</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-12-10 14:34:29'>2020-04-01 11:27</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Canvas"><span class="toc-text">Canvas</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#绘制环境保存和还原"><span class="toc-text">绘制环境保存和还原</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置阴影"><span class="toc-text">设置阴影</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#颜色渐变和背景图"><span class="toc-text">颜色渐变和背景图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线性渐变"><span class="toc-text">线性渐变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#径向渐变"><span class="toc-text">径向渐变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加颜色"><span class="toc-text">添加颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制背景图"><span class="toc-text">绘制背景图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变换"><span class="toc-text">变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#缩放"><span class="toc-text">缩放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#位移画布"><span class="toc-text">位移画布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#旋转"><span class="toc-text">旋转</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置绘制环境的透明度"><span class="toc-text">设置绘制环境的透明度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#画布限定区域绘制"><span class="toc-text">画布限定区域绘制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#画布保存base64编码内容"><span class="toc-text">画布保存base64编码内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#画布重叠渲染"><span class="toc-text">画布重叠渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#画布渲染画布"><span class="toc-text">画布渲染画布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#贝塞尔曲线"><span class="toc-text">贝塞尔曲线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制一条二次方曲线。"><span class="toc-text">绘制一条二次方曲线。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制一条三次贝塞尔曲线"><span class="toc-text">绘制一条三次贝塞尔曲线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建两条切线的弧"><span class="toc-text">创建两条切线的弧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解判断点是否在路径中"><span class="toc-text">了解判断点是否在路径中</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h1><h2 id="绘制环境保存和还原"><a href="#绘制环境保存和还原" class="headerlink" title="绘制环境保存和还原"></a>绘制环境保存和还原</h2><ul>
+<li><p>ctx.save() 保存当前环境的状态</p>
+<p>可以把当前绘制环境进行保存到缓存中</p>
+<p>可以保存的值有：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/strokeStyle" target="_blank" rel="noopener"><code>strokeStyle</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/fillStyle" target="_blank" rel="noopener"><code>fillStyle</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/globalAlpha" target="_blank" rel="noopener"><code>globalAlpha</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/lineWidth" target="_blank" rel="noopener"><code>lineWidth</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/lineCap" target="_blank" rel="noopener"><code>lineCap</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/lineJoin" target="_blank" rel="noopener"><code>lineJoin</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/miterLimit" target="_blank" rel="noopener"><code>miterLimit</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/lineDashOffset" target="_blank" rel="noopener"><code>lineDashOffset</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/shadowOffsetX" target="_blank" rel="noopener"><code>shadowOffsetX</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/shadowOffsetY" target="_blank" rel="noopener"><code>shadowOffsetY</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/shadowBlur" target="_blank" rel="noopener"><code>shadowBlur</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/shadowColor" target="_blank" rel="noopener"><code>shadowColor</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation" target="_blank" rel="noopener"><code>globalCompositeOperation</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/font" target="_blank" rel="noopener"><code>font</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/textAlign" target="_blank" rel="noopener"><code>textAlign</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/textBaseline" target="_blank" rel="noopener"><code>textBaseline</code></a></p>
+</li>
+<li><p>ctx.restore() 返回之前保存过的路径状态和属性</p>
+</li>
+</ul>
+<h2 id="设置阴影"><a href="#设置阴影" class="headerlink" title="设置阴影"></a>设置阴影</h2><ul>
+<li><p>shadowColor ： 设置或返回用于阴影的颜色</p>
+</li>
+<li><p>shadowBlur： 设置或返回用于阴影的模糊级别,大于1的正整数，数值越高，模糊程度越大</p>
+</li>
+<li><p>shadowOffsetX： 设置或返回阴影距形状的水平距离</p>
+</li>
+<li><p>shadowOffsetY： 设置或返回阴影距形状的垂直距离</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ctx.fillStyle = <span class="string">"red"</span></span><br><span class="line">ctx.shadowColor = <span class="string">"rgba(0,0,0,.5)"</span>;</span><br><span class="line">ctx.shadowBlur = <span class="number">10</span>;</span><br><span class="line">ctx.shadowOffsetX = <span class="number">10</span>;</span><br><span class="line">ctx.shadowOffsetY = <span class="number">10</span>;</span><br><span class="line">ctx.fillRect(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>设置png图片的阴影，图片透明部分不会被投影。</strong></p>
+<h2 id="颜色渐变和背景图"><a href="#颜色渐变和背景图" class="headerlink" title="颜色渐变和背景图"></a>颜色渐变和背景图</h2><h3 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h3><ul>
+<li>线性渐变可以用于 矩形、圆形、文字等颜色样式</li>
+<li>语法：ctx.createLinearGradient(x0,y0,x1,y1); //参数：x0,y0起始坐标，x1,y1结束坐标</li>
+<li>解释：创建一个线性渐变的对象，可以赋给图形的 fillStyle 或 strokeStyle 属性</li>
+</ul>
+<h3 id="径向渐变"><a href="#径向渐变" class="headerlink" title="径向渐变"></a>径向渐变</h3><ul>
+<li><p>context.createRadialGradient(x0,y0,r0,x1,y1,r1);  创建一个径向渐变的对象</p>
+</li>
+<li><p>参数详解：</p>
+<ul>
+<li>x0: 渐变的开始圆的 x 坐标</li>
+</ul>
+</li>
+<li><p>y0: 渐变的开始圆的 y 坐标</p>
+<ul>
+<li>r0: 开始圆的半径</li>
+<li>x1: 渐变的结束圆的 x 坐标</li>
+<li>y1: 渐变的结束圆的 y 坐标</li>
+<li>r1: 结束圆的半径</li>
+</ul>
+</li>
+</ul>
+<h3 id="添加颜色"><a href="#添加颜色" class="headerlink" title="添加颜色"></a>添加颜色</h3><p>创建出 <code>canvasGradient</code> 对象后，需要用 <code>addColorStop</code> 方法给它上色。</p>
+<ul>
+<li><p>gradient.addColorStop(position, color)</p>
+<p>addColorStop 方法接受 2 个参数，<code>position</code> 参数必须是一个 0.0 与 1.0 之间的数值，表示渐变中颜色所在的相对位置。例如，0.5 表示颜色会出现在正中间。<code>color</code> 参数必须是一个有效的 CSS 颜色值（如 #FFF， rgba(0,0,0,1)，等等）。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> clg = ctx.createLinearGradient(<span class="number">50</span>, <span class="number">50</span>, <span class="number">300</span>, <span class="number">50</span>)</span><br><span class="line">clg.addColorStop(<span class="number">0</span>, <span class="string">'#ff0'</span>);</span><br><span class="line">clg.addColorStop(<span class="number">1</span>, <span class="string">'#f00'</span>);</span><br><span class="line">ctx.fillStyle = clg;</span><br><span class="line">ctx.fillRect(<span class="number">50</span>, <span class="number">50</span>, <span class="number">300</span>, <span class="number">50</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> clg2 = ctx.createRadialGradient(<span class="number">100</span>,<span class="number">200</span>,<span class="number">50</span>,<span class="number">200</span>,<span class="number">200</span>,<span class="number">150</span>)</span><br><span class="line">clg2.addColorStop(<span class="number">0</span>,<span class="string">'red'</span>)</span><br><span class="line">clg2.addColorStop(<span class="number">1</span>,<span class="string">'green'</span>)</span><br><span class="line">ctx.fillStyle = clg2;</span><br><span class="line">ctx.fillRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">400</span>, <span class="number">400</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="绘制背景图"><a href="#绘制背景图" class="headerlink" title="绘制背景图"></a>绘制背景图</h3><ul>
+<li><p>ctx.createPattern(img,repeat) 方法在指定的方向内重复指定的元素（了解）</p>
+</li>
+<li><p>第一参数：设置平铺背景的图片，第二个背景平铺的方式。</p>
+<ul>
+<li>image ： 规定要使用的图片、画布或视频元素。</li>
+<li>repeat ： 默认。该模式在水平和垂直方向重复。</li>
+<li>repeat-x ： 该模式只在水平方向重复。</li>
+<li>repeat-y ： 该模式只在垂直方向重复。</li>
+<li>no-repeat： 该模式只显示一次（不重复）。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> imgEle = <span class="keyword">new</span> Image();</span><br><span class="line">imgEle.src = <span class="string">"../lib/image/HC/full.png"</span>;</span><br><span class="line">imgEle.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> cp = ctx.createPattern(imgEle,<span class="string">'repeat-x'</span>);</span><br><span class="line">    ctx.fillStyle = cp;</span><br><span class="line">    ctx.fillRect(<span class="number">100</span>,<span class="number">0</span>,<span class="number">300</span>,<span class="number">100</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h2><h3 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h3><ul>
+<li>scale() 方法缩放当前绘图，更大或更小</li>
+<li>语法：context.scale(scalewidth,scaleheight)<ul>
+<li>scalewidth : 缩放当前绘图的宽度 (1=100%, 0.5=50%, 2=200%)</li>
+<li>scaleheight : 缩放当前绘图的高度 (1=100%, 0.5=50%, 2=200%) </li>
+</ul>
+</li>
+</ul>
+<h3 id="位移画布"><a href="#位移画布" class="headerlink" title="位移画布"></a>位移画布</h3><ul>
+<li><p>ctx.translate(x,y) 方法重新映射画布上的 (0,0) 位置</p>
+</li>
+<li><p>参数说明：</p>
+<ul>
+<li>x： 添加到水平坐标（x）上的值</li>
+<li>y： 添加到垂直坐标（y）上的值</li>
+</ul>
+</li>
+</ul>
+<p><strong>发生位移后，相当于把画布的 0,0 坐标 更换到新的 x,y 的位置，所有绘制的新元素都被影响。</strong></p>
+<h3 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h3><ul>
+<li>context.rotate(angle); 方法旋转当前的绘图，参数是弧度（PI）</li>
+<li>注意旋转是以画布的左上角为起点的,所以一般旋转之前要使用translate将画布的原点设置在画布的中间位置</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.translate(<span class="number">100</span>,<span class="number">100</span>);</span><br><span class="line">ctx.rotate(<span class="built_in">Math</span>.PI/<span class="number">2</span>);</span><br><span class="line">ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">60</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="设置绘制环境的透明度"><a href="#设置绘制环境的透明度" class="headerlink" title="设置绘制环境的透明度"></a>设置绘制环境的透明度</h2><ul>
+<li><p>context.globalAlpha=number;</p>
+</li>
+<li><p>number:透明值。必须介于 0.0（完全透明） 与 1.0（不透明） 之间。</p>
+</li>
+<li><p>设置透明度是全局的透明度的样式。注意是全局的。</p>
+</li>
+</ul>
+<h2 id="画布限定区域绘制"><a href="#画布限定区域绘制" class="headerlink" title="画布限定区域绘制"></a>画布限定区域绘制</h2><ul>
+<li><p>ctx.clip();  方法从原始画布中剪切任意形状和尺寸</p>
+</li>
+<li><p>一旦剪切了某个区域，则所有之后的绘图都会被限制在被剪切的区域内（不能访问画布上的其他区域）</p>
+</li>
+<li><p>一般配合绘制环境的保存和还原。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ctx.rect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">200</span>,<span class="number">200</span>);</span><br><span class="line">ctx.clip();</span><br><span class="line"></span><br><span class="line">ctx.moveTo(<span class="number">100</span>,<span class="number">70</span>);</span><br><span class="line">ctx.arc(<span class="number">100</span>,<span class="number">70</span>,<span class="number">20</span>,<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">Math</span>.PI,<span class="literal">true</span>);</span><br><span class="line">ctx.arc(<span class="number">100</span>,<span class="number">70</span>,<span class="number">50</span>,<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">Math</span>.PI,<span class="literal">true</span>);</span><br><span class="line">ctx.fillStyle = <span class="string">'orange'</span>;</span><br><span class="line">ctx.fill();</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="画布保存base64编码内容"><a href="#画布保存base64编码内容" class="headerlink" title="画布保存base64编码内容"></a>画布保存base64编码内容</h2><ul>
+<li><p>把canvas绘制的内容输出成base64内容。</p>
+</li>
+<li><p>语法：canvas.toDataURL(type, encoderOptions);</p>
+</li>
+<li><p>例如：canvas.toDataURL(“image/jpg”,1);</p>
+</li>
+<li><p>参数说明：</p>
+<ul>
+<li>type，设置输出的类型，比如 image/png image/jpeg等</li>
+<li>encoderOptions： 0-1之间的数字，用于标识输出图片的质量，1表示无损压缩，类型为： image/jpeg 或者image/webp才起作用。</li>
+</ul>
+</li>
+</ul>
+<p><strong>作用：document按行加载内容，把图片转换成base64写到css中，能使css加载完毕的时候，图片内容已经加载，避免dom元素加载完了，图片还没出来的情况。而且能提高访问速度。</strong></p>
+<h2 id="画布重叠渲染"><a href="#画布重叠渲染" class="headerlink" title="画布重叠渲染"></a>画布重叠渲染</h2><p> <code>context.globalCompositeOperation</code> 属性设置在已有图形上面再画新图形时采用的遮盖策略，其中type是用于标识要使用的合成或混合模式操作的字符串。 </p>
+<ul>
+<li><p>语法：ctx.globalCompositeOperation = type;</p>
+</li>
+<li><p>type 的值有：</p>
+<table>
+<thead>
+<tr>
+<th>source-over</th>
+<th>默认。在目标图像上显示源图像。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>source-atop</td>
+<td>在目标图像顶部显示源图像。源图像位于目标图像之外的部分是不可见的。</td>
+</tr>
+<tr>
+<td>source-in</td>
+<td>在目标图像中显示源图像。只有目标图像内的源图像部分会显示，目标图像是透明的。</td>
+</tr>
+<tr>
+<td>source-out</td>
+<td>在目标图像之外显示源图像。只会显示目标图像之外源图像部分，目标图像是透明的。</td>
+</tr>
+<tr>
+<td>destination-over</td>
+<td>在源图像上方显示目标图像。</td>
+</tr>
+<tr>
+<td>destination-atop</td>
+<td>在源图像顶部显示目标图像。源图像之外的目标图像部分不会被显示。</td>
+</tr>
+<tr>
+<td>destination-in</td>
+<td>在源图像中显示目标图像。只有源图像内的目标图像部分会被显示，源图像是透明的。</td>
+</tr>
+<tr>
+<td>destination-out</td>
+<td>在源图像外显示目标图像。只有源图像外的目标图像部分会被显示，源图像是透明的。</td>
+</tr>
+<tr>
+<td>lighter</td>
+<td>显示源图像 + 目标图像。</td>
+</tr>
+<tr>
+<td>copy</td>
+<td>显示源图像。忽略目标图像。</td>
+</tr>
+<tr>
+<td>xor</td>
+<td>使用异或操作对源图像与目标图像进行组合。</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>常用参数： destination-out （ 在与源不重叠的区域上保留目标。其他部分都变成透明的 ）</p>
+<h2 id="画布渲染画布"><a href="#画布渲染画布" class="headerlink" title="画布渲染画布"></a>画布渲染画布</h2></li>
+</ul>
+<ul>
+<li><p>context.drawImage(img,x,y);</p>
+</li>
+<li><p>img参数也可以是画布，也就是把一个画布整体的渲染到另外一个画布上。</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cvs =   <span class="built_in">document</span>.querySelectorAll(<span class="string">'canvas'</span>) </span><br><span class="line"><span class="keyword">var</span> cvs1 = cvs[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">var</span> cvs2 = cvs[<span class="number">1</span>]</span><br><span class="line"><span class="keyword">var</span> ctx1 =   cvs1.getContext(<span class="string">"2d"</span>) </span><br><span class="line"><span class="keyword">var</span> ctx2 =   cvs2.getContext(<span class="string">"2d"</span>) </span><br><span class="line">cvs1.width = <span class="number">300</span></span><br><span class="line">cvs1.height = <span class="number">300</span> </span><br><span class="line">cvs2.width = <span class="number">600</span></span><br><span class="line">cvs2.height = <span class="number">600</span></span><br><span class="line">ctx1.fillRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>,<span class="number">100</span>)</span><br><span class="line">ctx2.drawImage(cvs1, <span class="number">100</span>,<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ul>
+<h2 id="贝塞尔曲线"><a href="#贝塞尔曲线" class="headerlink" title="贝塞尔曲线"></a>贝塞尔曲线</h2><h3 id="绘制一条二次方曲线。"><a href="#绘制一条二次方曲线。" class="headerlink" title="绘制一条二次方曲线。"></a>绘制一条二次方曲线。</h3><ul>
+<li><p>语法：context.quadraticCurveTo(cpx,cpy,x,y);</p>
+<ul>
+<li>cpx： 贝塞尔控制点的 x 坐标</li>
+</ul>
+<ul>
+<li>cpy： 贝塞尔控制点的 y 坐标</li>
+<li>x ： 结束点的 x 坐标</li>
+<li>y ： 结束点的 y 坐标 </li>
+</ul>
+</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/6784887-5fe2861b30c6a268.gif?imageMogr2/auto-orient/strip" alt="1674efc1f01a80fc.gif"></p>
+<p>​    </p>
+<h3 id="绘制一条三次贝塞尔曲线"><a href="#绘制一条三次贝塞尔曲线" class="headerlink" title="绘制一条三次贝塞尔曲线"></a>绘制一条三次贝塞尔曲线</h3><ul>
+<li><p>语法：context.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);</p>
+</li>
+<li><p>提示：三次贝塞尔曲线需要三个点。前两个点是用于三次贝塞尔计算中的控制点，第三个点是曲线的结束点。曲线的开始点是当前路径中最后一个点。如果路径不存在，那么请使用 beginPath() 和 moveTo() 方法来定义开始点。</p>
+</li>
+<li><p>参数说明：</p>
+<ul>
+<li>cp1x： 第一个贝塞尔控制点的 x 坐标</li>
+<li>cp1y： 第一个贝塞尔控制点的 y 坐标</li>
+<li>cp2x： 第二个贝塞尔控制点的 x 坐标</li>
+<li>cp2y： 第二个贝塞尔控制点的 y 坐标</li>
+<li>x: 结束点的 x 坐标</li>
+<li>y: 结束点的 y 坐标</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/6784887-5b043db3eb39295e.gif?imageMogr2/auto-orient/strip" alt="1674efc1fdd312e3.gif"></p>
+<p>​            </p>
+<h2 id="创建两条切线的弧"><a href="#创建两条切线的弧" class="headerlink" title="创建两条切线的弧"></a>创建两条切线的弧</h2><ul>
+<li>在画布上创建介于当前起点和两个点形成的夹角的切线之间的弧</li>
+<li>语法： context.arcTo(x1,y1,x2,y2,r)</li>
+<li>参数：<ul>
+<li>x1: 控制点1的 x 坐标</li>
+<li>y1: 控制点1的 y 坐标</li>
+<li>x2: 控制点2(终点)的 x 坐标</li>
+<li>y2: 控制点2(终点)的 y 坐标</li>
+<li>r : 弧的半径</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/6784887-a7800ae4aec335ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="image.png"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ctx.moveTo(<span class="number">100</span>,<span class="number">100</span>);</span><br><span class="line">ctx.lineTo(<span class="number">200</span>,<span class="number">100</span>); </span><br><span class="line"><span class="comment">//context.arcTo(x1,y1,x2,y2,r);   //类比：css3中的圆角。</span></span><br><span class="line">ctx.arcTo(<span class="number">240</span>, <span class="number">100</span>, <span class="number">240</span>, <span class="number">260</span>, <span class="number">40</span>);  </span><br><span class="line">ctx.lineTo(<span class="number">240</span>, <span class="number">300</span>)</span><br><span class="line">ctx.stroke();</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="了解判断点是否在路径中"><a href="#了解判断点是否在路径中" class="headerlink" title="了解判断点是否在路径中"></a>了解判断点是否在路径中</h2><p><code>ctx.strokeRect(50, 50, 200, 200)   alert(ctx.isPointInPath(110,100)) //ctx.stroke();</code>     </p>
+
+      
+    <hr> 
+    <!-- <span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span> -->
+    </div>
+</article>
+
+<!--  -->
+
+
+
+
+
+    
+
+<!-- 
+ -->
+
+    </div>
+    <div class="copyright">
+        <!-- <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+<!--  -->
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#nodejs','#es6','#Vue',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

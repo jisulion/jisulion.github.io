@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS/html5/HC1 | 晓晴的博客</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="JS/html5/HC1 | 晓晴的博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="移动端事件 touch  只有移动端才有touch事件   touchstart：当手指触碰屏幕时候发生。不管当前有多少只手指 touchmove：当手指在屏幕上滑动时连续触发。通常我们再滑屏页面，会调用 event.preventDefault() 阻止默认情况的发生：阻止页面滚动 touchend：当手指离开屏幕时触发 touchcancel：系统停止跟踪触摸时候会触发。例如在触摸过程中突然页">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS&#x2F;移动端操作&#x2F;Mobile2">
+<meta property="og:url" content="http://jisulion.github.io/2020/04/01/JS/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%93%8D%E4%BD%9C/Mobile2/index.html">
+<meta property="og:site_name" content="晓晴的博客">
+<meta property="og:description" content="移动端事件 touch  只有移动端才有touch事件   touchstart：当手指触碰屏幕时候发生。不管当前有多少只手指 touchmove：当手指在屏幕上滑动时连续触发。通常我们再滑屏页面，会调用 event.preventDefault() 阻止默认情况的发生：阻止页面滚动 touchend：当手指离开屏幕时触发 touchcancel：系统停止跟踪触摸时候会触发。例如在触摸过程中突然页">
+<meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2020-04-01T03:27:45.369Z">
+<meta property="article:modified_time" content="2019-11-29T01:12:18.000Z">
+<meta property="article:author" content="凌晨晓晴">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/tjl.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/tjl.jpg" />
+</a>
+<div class="author">
+    <span>凌晨晓晴</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/jisulion/lion" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:464217008@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=464217008&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(34)</small></div></li>
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(16)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="34">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="以 in: 开头进行全文搜索" />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color2">nodejs</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">es6</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Vue</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/2020/03/16/hello/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="hello">hello</span>
+            <span class="post-date" title="2020-03-16 13:58:53">2020/03/16</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/27/nodeJS/"
+           data-tag="nodejs"
+           data-author="" >
+            <span class="post-title" title="Node介绍">Node介绍</span>
+            <span class="post-date" title="2020-03-27 18:28:53">2020/03/27</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vuex/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vuex">vuex</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/es6/"
+           data-tag="es6"
+           data-author="" >
+            <span class="post-title" title="es6入门">es6入门</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vue%E5%85%A5%E9%97%A8%E7%AE%80%E5%8D%95%E8%AF%AD%E6%B3%95%E4%BB%8B%E7%BB%8D/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue入门">vue入门</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/28/%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%80%E4%BA%9B%E8%BF%94%E5%9B%9E%E5%80%BC/"
+           data-tag="es6"
+           data-author="" >
+            <span class="post-title" title="es6的一些分类">es6的一些分类</span>
+            <span class="post-date" title="2020-03-28 16:38:11">2020/03/28</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/%E9%AB%98%E7%BA%A7%E8%B7%AF%E7%94%B1/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue-router路由高级">vue-router路由高级</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/%E4%B8%80%E4%BA%9Bui%E6%A1%86%E6%9E%B6/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue常用ui框架">vue常用ui框架</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vuex%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vuex辅助函数">vuex辅助函数</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vue%E4%B8%80%E4%BA%9B%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="axios">axios</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue生命周期">vue生命周期</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vue%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="nuxt服务端渲染与客户端渲染">nuxt服务端渲染与客户端渲染</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vue%E8%84%9A%E6%89%8B%E6%9E%B6/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue-cli(脚手架)">vue-cli(脚手架)</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/30/vue%E6%8F%92%E6%A7%BD%E5%8F%8A%E5%8A%A8%E7%94%BB%E6%8F%92%E4%BB%B6/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue插槽及动画插件">vue插槽及动画插件</span>
+            <span class="post-date" title="2020-03-30 16:03:53">2020/03/30</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vue%E8%B7%AF%E7%94%B1/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue路由">vue路由</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/vue%E7%BB%93%E6%9E%84%E4%BB%8B%E7%BB%8D/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="vue结构">vue结构</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2020/03/31/webpack/"
+           data-tag="Vue"
+           data-author="" >
+            <span class="post-title" title="wepack">wepack</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/node/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/node">JS/node</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/%E6%AD%A3%E5%88%99/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/正则">JS/正则</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/AJAX/AJAX2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/AJAX/AJAX2">JS/AJAX/AJAX2</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/BOM/BOM%20new/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/BOM/BOM new">JS/BOM/BOM new</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/BOM/BOM%20window%E5%B1%9E%E6%80%A7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/BOM/BOM window属性">JS/BOM/BOM window属性</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/BOM/BOM%20%E4%B8%89%E5%A4%A7%E5%AE%B6%E6%97%8F/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/BOM/BOM 三大家族">JS/BOM/BOM 三大家族</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/BOM/BOM%20%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/BOM/BOM 事件对象">JS/BOM/BOM 事件对象</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/Canvas/Canvas/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/Canvas/Canvas">JS/Canvas/Canvas</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/Canvas/Canvas2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/Canvas/Canvas2">JS/Canvas/Canvas2</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/JS%E9%AB%98%E7%BA%A7/%E5%AF%B9%E8%B1%A1%E7%BB%A7%E6%89%BF/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/JS高级/对象继承">JS/JS高级/对象继承</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/JS%E9%AB%98%E7%BA%A7/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/JS高级/面向对象">JS/JS高级/面向对象</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/JS%E9%AB%98%E7%BA%A7/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A12/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/JS高级/面向对象2">JS/JS高级/面向对象2</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/html5/HC1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/html5/HC1">JS/html5/HC1</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/html5/HC2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/html5/HC2">JS/html5/HC2</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%93%8D%E4%BD%9C/Mobile2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/移动端操作/Mobile2">JS/移动端操作/Mobile2</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%93%8D%E4%BD%9C/Mobile3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/移动端操作/Mobile3">JS/移动端操作/Mobile3</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%93%8D%E4%BD%9C/mobile1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/移动端操作/mobile1">JS/移动端操作/mobile1</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-JS/html5/HC1" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">JS/html5/HC1</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-11-25 11:00:58'>2020-04-01 11:27</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#多媒体"><span class="toc-text">多媒体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#html新增元素"><span class="toc-text">html新增元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#兼容问题"><span class="toc-text">兼容问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过-JS-控制-video-与-audio-相同"><span class="toc-text">通过 JS 控制(video 与 audio 相同)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-存储"><span class="toc-text">Web 存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sessionStorage-localStorage"><span class="toc-text">sessionStorage&#x2F;localStorage</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充新增全局属性"><span class="toc-text">补充新增全局属性</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="多媒体"><a href="#多媒体" class="headerlink" title="多媒体"></a>多媒体</h2><h3 id="html新增元素"><a href="#html新增元素" class="headerlink" title="html新增元素"></a>html新增元素</h3><p>在HTML5之前，在网页上播放音频/视频的通用方法是利用Flash来播放，但是大多情况下，并非所有用户的浏览器都安装了Flash插件，由此使得处理音频/视频播放变的非常复杂，并且移动设备的浏览器并不支持Flash插件。</p>
+<p>HTML5 新增 audio 标签 和 video 标签来解决音视频的问题;语法:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">"素材/小手拍拍.mp3"</span> <span class="attr">controls</span>&gt;</span>不支持<span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">	附加属性可以更友好控制音频的播放，如：</span></span><br><span class="line"><span class="comment">	autoplay 自动播放</span></span><br><span class="line"><span class="comment">	controls 是否显不默认播放控件</span></span><br><span class="line"><span class="comment">	loop 循环播放</span></span><br><span class="line"><span class="comment">	preload 预加载 同时设置autoplay时此属性失效</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">"素材/movie.ogg"</span> <span class="attr">width</span>=<span class="string">"400"</span> <span class="attr">height</span>=<span class="string">"300"</span> <span class="attr">controls</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">	同样，通过附加属性可以更友好的控制视频的播放</span></span><br><span class="line"><span class="comment">	autoplay 自动播放</span></span><br><span class="line"><span class="comment">	controls 是否显示默认播放控件</span></span><br><span class="line"><span class="comment">	loop 循环播放</span></span><br><span class="line"><span class="comment">	preload 预加载，同时设置了autoplay，此属性将失效</span></span><br><span class="line"><span class="comment">	width 设置播放窗口宽度</span></span><br><span class="line"><span class="comment">	height 设置播放窗口的高度</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="兼容问题"><a href="#兼容问题" class="headerlink" title="兼容问题"></a>兼容问题</h3><p>由于版权等原因，不同的浏览器可支持播放的格式是不一样的:<br><img src="https://upload-images.jianshu.io/upload_images/6784887-63f857d2781f53fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>多浏览器支持方案:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"素材/小手拍拍.mp3"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"素材/小手拍拍.wav"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"素材/小手拍拍.ogg"</span>&gt;</span></span><br><span class="line">    您的浏览器不支持</span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"素材/movie.ogg"</span> <span class="attr">type</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"素材/movie.mp4"</span> <span class="attr">type</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">	您的浏览器不支持</span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="通过-JS-控制-video-与-audio-相同"><a href="#通过-JS-控制-video-与-audio-相同" class="headerlink" title="通过 JS 控制(video 与 audio 相同)"></a>通过 JS 控制(video 与 audio 相同)</h3><ul>
+<li>属性<ul>
+<li>currentTime 视频播放的当前进度</li>
+<li>duration 视频的总时间</li>
+<li>paused 视频播放是否是暂停</li>
+</ul>
+</li>
+<li>方法<ul>
+<li><code>load()</code> 重新加载音频/视频元素<ul>
+<li>语法: <code>audio|video.load()</code></li>
+<li>用于在更改来源或其他设置后对音频/视频元素进行更新</li>
+</ul>
+</li>
+<li><code>play()</code> 播放</li>
+<li><code>pause()</code> 暂停</li>
+<li>更多精彩请自行查阅 <a href="http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp" target="_blank" rel="noopener">W3</a></li>
+</ul>
+</li>
+<li>事件<ul>
+<li>oncanplay: 事件在用户可以开始播放视频/音频（audio/video）时触发。</li>
+<li>ontimeupdate: 通过该事件来报告当前的播放进度.</li>
+<li>onended: 播放完时触发</li>
+</ul>
+</li>
+<li>全屏：video.webkitRequestFullScreen()</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"vd-box"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">video</span> <span class="attr">class</span>=<span class="string">"vd1"</span> <span class="attr">src</span>=<span class="string">"movie.ogg"</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tool-bar"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"process-bg"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"process-line"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- load() 加载、play() 播放、pause() 暂停 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-restart"</span>&gt;</span>重新播放<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-load"</span>&gt;</span>load<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-play"</span>&gt;</span>play<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-pause"</span>&gt;</span>pause<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-allTime"</span>&gt;</span>获取总时间<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-nowTime"</span>&gt;</span>获取当前时间<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-status"</span>&gt;</span>判断播放状态<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-full"</span>&gt;</span>全屏显示<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> restartBtn = <span class="built_in">document</span>.querySelector(<span class="string">'.btn-restart'</span>),</span></span><br><span class="line"><span class="javascript">		loadBtn = <span class="built_in">document</span>.querySelector(<span class="string">'.btn-load'</span>),</span></span><br><span class="line"><span class="javascript">		playBtn = <span class="built_in">document</span>.querySelector(<span class="string">'.btn-play'</span>),</span></span><br><span class="line"><span class="javascript">		pauseBtn = <span class="built_in">document</span>.querySelector(<span class="string">'.btn-pause'</span>),</span></span><br><span class="line"><span class="javascript">		allTimeBtn = <span class="built_in">document</span>.querySelector(<span class="string">'.btn-allTime'</span>),</span></span><br><span class="line"><span class="javascript">		nowTimeBtn = <span class="built_in">document</span>.querySelector(<span class="string">'.btn-nowTime'</span>),</span></span><br><span class="line"><span class="javascript">		statusBtn = <span class="built_in">document</span>.querySelector(<span class="string">'.btn-status'</span>),</span></span><br><span class="line"><span class="javascript">		fullBtn = <span class="built_in">document</span>.querySelector(<span class="string">'.btn-full'</span>),</span></span><br><span class="line"><span class="javascript">		vd = <span class="built_in">document</span>.querySelector(<span class="string">'.vd1'</span>);</span></span><br><span class="line">		</span><br><span class="line"><span class="actionscript">	loadBtn.onclick = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">		vd.load();</span><br><span class="line">	&#125;</span><br><span class="line"><span class="actionscript">	playBtn.onclick = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">		vd.play();</span><br><span class="line">	&#125;</span><br><span class="line"><span class="actionscript">	pauseBtn.onclick = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">		vd.pause();</span><br><span class="line">	&#125;</span><br><span class="line"><span class="actionscript">	allTimeBtn.onclick = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">console</span>.log(<span class="string">'总时间==&gt;'</span>+vd.duration)</span></span><br><span class="line">	&#125;</span><br><span class="line"><span class="actionscript">	nowTimeBtn.onclick = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">console</span>.log(<span class="string">'当前播放到==&gt;'</span>+vd.currentTime)</span></span><br><span class="line">	&#125;</span><br><span class="line"><span class="actionscript">	statusBtn.onclick = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">console</span>.log(<span class="string">'播放状态===&gt;'</span>+vd.paused)</span></span><br><span class="line">	&#125;</span><br><span class="line"><span class="actionscript">	fullBtn.onclick = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">		vd.webkitRequestFullScreen();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="actionscript">	restartBtn.onclick = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">		vd.currentTime = 0;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Web-存储"><a href="#Web-存储" class="headerlink" title="Web 存储"></a>Web 存储</h2><p>随着互联网的快速发展，基于网页的应用越来越普遍，同时也变的越来越复杂，为了满足各种各样的需求，会经常性在本地存储大量的数据，传统方式我们以document.cookie来进行存储的，但是由于其存储大小只有4k左右，并且解析也相当的复杂，给开发带来诸多不便，HTML5规范则提出解决方案。</p>
+<h3 id="sessionStorage-localStorage"><a href="#sessionStorage-localStorage" class="headerlink" title="sessionStorage/localStorage"></a>sessionStorage/localStorage</h3><ol>
+<li><p><code>storage</code> 存储: <code>window.sessionStorage</code> <code>window.localStorage</code> (向本地保存数据,有可能在浏览器内存里面，有可能在硬盘上面)</p>
+</li>
+<li><p>特性</p>
+<ul>
+<li>设置、读取方便</li>
+<li>容量较大，<code>sessionStorage</code> 约5M、<code>localStorage</code> 约20M 不同的浏览器大小可能有差异</li>
+<li>均只能存储字符串类型的对象（虽然规范中可以存储其他原生类型的对象，但是目前为止没有浏览器对其进行实现），可以将对象 <code>JSON.stringify()</code> 编码后存储</li>
+</ul>
+</li>
+<li><p><code>window.sessionStorage</code></p>
+<ul>
+<li><p>生命周期为当前窗口或标签页，一旦窗口或标签页被关闭了，那么所有通过 <code>sessionStorage</code> 存储的数据也就被清空了。</p>
+</li>
+<li><p>在同一个窗口下数据可以共享</p>
+</li>
+</ul>
+</li>
+<li><p><code>window.localStorage</code></p>
+<ul>
+<li>永久生效，除非手动删除</li>
+<li>可以多窗口共享</li>
+<li>IE8 以上的 IE 版本才支持 <code>localStorage</code> 这个属性</li>
+<li><code>localStorage</code> 本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡</li>
+</ul>
+</li>
+<li><p>两者本质区别：不同浏览器无法共享 <code>localStorage</code> 或 <code>sessionStorage</code> 中的信息。相同浏览器的不同页面间可以共享相同的 <code>localStorage</code>（页面属于相同域名和端口），但是不同页面或标签页间无法共享 <code>sessionStorage</code> 的信息。</p>
+</li>
+<li><p>方法详解</p>
+<ul>
+<li><code>setItem(key, value)</code> 设置存储内容     同名替换原则</li>
+<li><code>getItem(key)</code> 读取存储内容</li>
+<li><code>removeItem(key)</code> 删除键值为key的存储内容</li>
+<li><code>clear()</code> 清空所有存储内容</li>
+<li><code>key(n)</code> 以索引值来获取对应的键</li>
+</ul>
+</li>
+</ol>
+<h2 id="补充新增全局属性"><a href="#补充新增全局属性" class="headerlink" title="补充新增全局属性"></a>补充新增全局属性</h2><ul>
+<li><p><strong>contentEditable</strong>属性  单独某一个标签的属性 可以使内容能被编辑</p>
+</li>
+<li><p><strong>designMode</strong>属性（这个在js中进行使用，让页面中所有的元素开启可编辑模式） 让页面所有的标签都可以被编辑 比如div、p、h1等等</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">document</span>.designMode = <span class="string">"on"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>draggable</strong> 拖拽属性<br>  拖拽元素:     页面中设置了draggable=”true”属性的元素，不能省略 = “true”</p>
+<p>  目标元素:  页面中任何一个元素都可以成为目标元素</p>
+<p>  拖拽元素</p>
+<ul>
+<li><p>ondrag             应用于拖拽元素，整个拖拽过程都会调用</p>
+</li>
+<li><p>ondragstart    应用于拖拽元素，当拖拽开始时调用</p>
+</li>
+<li><p>ondragleave    应用于拖拽元素，当鼠标离开拖拽元素时调用</p>
+</li>
+<li><p>ondragend        应用于拖拽元素，当拖拽结束时调用</p>
+<p>目标元素</p>
+</li>
+<li><p>ondragenter    应用于目标元素，当拖拽元素进入时调用</p>
+</li>
+<li><p>ondragover    应用于目标元素，当停留在目标元素上时调用</p>
+</li>
+<li><p>ondrop    应用于目标元素，当在目标元素上松开鼠标时调用，需要在ondragover上阻止浏览器的默认事件，因为浏览器默认是禁止元素堆叠的</p>
+</li>
+<li><p>ondragleave    应用于目标元素，当拖拽元素离开目标元素时调用</p>
+</li>
+</ul>
+</li>
+<li><p><strong>fullscreen</strong> 全屏属性</p>
+<ul>
+<li>开启全屏</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (E.requestFullscreen) &#123;</span><br><span class="line">	E.requestFullscreen();</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> (E.webkitRequestFullscreen) &#123;</span><br><span class="line">	E.webkitRequestFullscreen();</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> (E.mozRequestFullscreen) &#123;</span><br><span class="line">	E.mozRequestFullscreen();</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	alert(<span class="string">"sorry,无法全屏"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>退出全屏必须使用 document的api</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">document</span>.exitFullscreen) &#123;</span><br><span class="line">	<span class="built_in">document</span>.exitFullscreen();</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.webkitCancelFullScreen) &#123;</span><br><span class="line">	<span class="built_in">document</span>.webkitCancelFullScreen();</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.mozCancelFullScreen) &#123;</span><br><span class="line">	<span class="built_in">document</span>.mozCancelFullScreen();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>判断是否是全屏</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ifFullscreen</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">document</span>.fullscreen || <span class="built_in">document</span>.webkitIsFullScreen || <span class="built_in">document</span>.mozFullScreen || <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<p><strong>注意：给全屏状态下的元素添加全屏样式不起作用，给全屏状态下的元素的子类添加样式可用</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.全屏状态下的元素<span class="selector-pseudo">:fullscreen</span> 子类&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    <hr> 
+    <!-- <span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span> -->
+    </div>
+</article>
+
+<!--  -->
+
+
+
+
+
+    
+
+<!-- 
+ -->
+
+    </div>
+    <div class="copyright">
+        <!-- <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+<!--  -->
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#nodejs','#es6','#Vue',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
