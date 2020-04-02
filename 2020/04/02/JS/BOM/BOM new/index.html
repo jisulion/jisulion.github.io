@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>新动画函数 | 晓晴的博客</title>
+  <meta name="keywords" content=" BOM ">
+  <meta name="description" content="新动画函数 | 晓晴的博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="nodejs Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I&#x2F;O 的模型，使其轻量又高效。   之前js只能在x.html中通过浏览器打开运行,运行环境是window对象.  通过安装nodejs本地客户端,可以把js运行环境安装到本地.   express web开发框架 基于 Node.js 平台，快速、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS&#x2F;node">
+<meta property="og:url" content="http://jisulion.github.io/2020/04/01/JS/node/index.html">
+<meta property="og:site_name" content="晓晴的博客">
+<meta property="og:description" content="nodejs Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I&#x2F;O 的模型，使其轻量又高效。   之前js只能在x.html中通过浏览器打开运行,运行环境是window对象.  通过安装nodejs本地客户端,可以把js运行环境安装到本地.   express web开发框架 基于 Node.js 平台，快速、">
+<meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2020-04-01T03:27:45.307Z">
+<meta property="article:modified_time" content="2019-12-13T07:01:31.000Z">
+<meta property="article:author" content="凌晨晓晴">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/tjl.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/tjl.jpg" />
+</a>
+<div class="author">
+    <span>凌晨晓晴</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/jisulion/lion" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:464217008@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=464217008&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(36)</small></div></li>
+    
+        
+            
+            <li><div data-rel="es6">es6<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Node">Node<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Vue">Vue<small>(13)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="JS">JS<small>(18)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="36">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="以 in: 开头进行全文搜索" />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color2">nodejs</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">es6</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">数据处理</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">入门</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">插件</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">插槽</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">接口</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">渲染</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">vuex</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">脚手架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">路由</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">wepack</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">返回值</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">高级路由</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">h5</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">正则</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">BOM</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">AJAX</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">Canvas</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">js高级</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">移动端</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/2020/03/16/hello/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="hello">hello</span>
+            <span class="post-date" title="2020-03-16 13:58:53">2020/03/16</span>
+        </a>
+        
+        <a  class="Node "
+           href="/2020/03/27/nodeJS/"
+           data-tag="nodejs"
+           data-author="" >
+            <span class="post-title" title="Node介绍">Node介绍</span>
+            <span class="post-date" title="2020-03-27 18:28:53">2020/03/27</span>
+        </a>
+        
+        <a  class="Vue "
+           href="/2020/03/31/vuex/"
+           data-tag="数据处理"
+           data-author="" >
+            <span class="post-title" title="vuex">vuex</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="es6 "
+           href="/2020/03/31/es6/"
+           data-tag="es6"
+           data-author="" >
+            <span class="post-title" title="es6入门">es6入门</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="Vue "
+           href="/2020/03/31/vue%E5%85%A5%E9%97%A8%E7%AE%80%E5%8D%95%E8%AF%AD%E6%B3%95%E4%BB%8B%E7%BB%8D/"
+           data-tag="入门"
+           data-author="" >
+            <span class="post-title" title="vue入门">vue入门</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="es6 "
+           href="/2020/03/28/%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%80%E4%BA%9B%E8%BF%94%E5%9B%9E%E5%80%BC/"
+           data-tag="返回值"
+           data-author="" >
+            <span class="post-title" title="es6的一些分类">es6的一些分类</span>
+            <span class="post-date" title="2020-03-28 16:38:11">2020/03/28</span>
+        </a>
+        
+        <a  class="Vue "
+           href="/2020/03/31/%E9%AB%98%E7%BA%A7%E8%B7%AF%E7%94%B1/"
+           data-tag="高级路由"
+           data-author="" >
+            <span class="post-title" title="vue-router路由高级">vue-router路由高级</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="Vue "
+           href="/2020/03/31/%E4%B8%80%E4%BA%9Bui%E6%A1%86%E6%9E%B6/"
+           data-tag="框架"
+           data-author="" >
+            <span class="post-title" title="vue常用ui框架">vue常用ui框架</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="Vue "
+           href="/2020/03/31/vuex%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0/"
+           data-tag="vuex"
+           data-author="" >
+            <span class="post-title" title="vuex辅助函数">vuex辅助函数</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="Vue "
+           href="/2020/03/31/vue%E4%B8%80%E4%BA%9B%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/"
+           data-tag="接口"
+           data-author="" >
+            <span class="post-title" title="axios">axios</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="Vue "
+           href="/2020/03/31/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"
+           data-tag="入门"
+           data-author="" >
+            <span class="post-title" title="vue生命周期">vue生命周期</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="Vue "
+           href="/2020/03/31/vue%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/"
+           data-tag="渲染"
+           data-author="" >
+            <span class="post-title" title="nuxt服务端渲染与客户端渲染">nuxt服务端渲染与客户端渲染</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="Vue "
+           href="/2020/03/31/vue%E8%84%9A%E6%89%8B%E6%9E%B6/"
+           data-tag="脚手架"
+           data-author="" >
+            <span class="post-title" title="vue-cli(脚手架)">vue-cli(脚手架)</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="Vue "
+           href="/2020/03/30/vue%E6%8F%92%E6%A7%BD%E5%8F%8A%E5%8A%A8%E7%94%BB%E6%8F%92%E4%BB%B6/"
+           data-tag="插件,插槽"
+           data-author="" >
+            <span class="post-title" title="vue插槽及动画插件">vue插槽及动画插件</span>
+            <span class="post-date" title="2020-03-30 16:03:53">2020/03/30</span>
+        </a>
+        
+        <a  class="Vue "
+           href="/2020/03/31/vue%E8%B7%AF%E7%94%B1/"
+           data-tag="路由"
+           data-author="" >
+            <span class="post-title" title="vue路由">vue路由</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="Vue "
+           href="/2020/03/31/vue%E7%BB%93%E6%9E%84%E4%BB%8B%E7%BB%8D/"
+           data-tag="入门"
+           data-author="" >
+            <span class="post-title" title="vue结构">vue结构</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class="Vue "
+           href="/2020/03/31/webpack/"
+           data-tag="wepack"
+           data-author="" >
+            <span class="post-title" title="wepack">wepack</span>
+            <span class="post-date" title="2020-03-31 16:37:52">2020/03/31</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/01/JS/node/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS/node">JS/node</span>
+            <span class="post-date" title="2020-04-01 11:27:45">2020/04/01</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/%E6%AD%A3%E5%88%99/"
+           data-tag="正则"
+           data-author="" >
+            <span class="post-title" title="正则">正则</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/AJAX/AJAX2/"
+           data-tag="AJAX"
+           data-author="" >
+            <span class="post-title" title="AJAX跨域">AJAX跨域</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/BOM/BOM%20new/"
+           data-tag="BOM"
+           data-author="" >
+            <span class="post-title" title="新动画函数">新动画函数</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/BOM/BOM%20window%E5%B1%9E%E6%80%A7/"
+           data-tag="BOM"
+           data-author="" >
+            <span class="post-title" title="window属性">window属性</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/BOM/BOM%20%E4%B8%89%E5%A4%A7%E5%AE%B6%E6%97%8F/"
+           data-tag="BOM"
+           data-author="" >
+            <span class="post-title" title="BOM">BOM</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/BOM/BOM%20%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/"
+           data-tag="BOM"
+           data-author="" >
+            <span class="post-title" title="事件对象">事件对象</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/Canvas/Canvas/"
+           data-tag="Canvas"
+           data-author="" >
+            <span class="post-title" title="Canvas介绍">Canvas介绍</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/Canvas/Canvas2/"
+           data-tag="Canvas"
+           data-author="" >
+            <span class="post-title" title="Canvas的绘制">Canvas的绘制</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/JS%E9%AB%98%E7%BA%A7/%E5%AF%B9%E8%B1%A1%E7%BB%A7%E6%89%BF/"
+           data-tag="js高级"
+           data-author="" >
+            <span class="post-title" title="对象继承">对象继承</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/JS%E9%AB%98%E7%BA%A7/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"
+           data-tag="js高级"
+           data-author="" >
+            <span class="post-title" title="面向对象1">面向对象1</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/JS%E9%AB%98%E7%BA%A7/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A12/"
+           data-tag="js高级"
+           data-author="" >
+            <span class="post-title" title="原型与原型链">原型与原型链</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/html5/HC1/"
+           data-tag="h5"
+           data-author="" >
+            <span class="post-title" title="多媒体">多媒体</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/html5/HC2/"
+           data-tag="h5"
+           data-author="" >
+            <span class="post-title" title="动画">动画</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%93%8D%E4%BD%9C/Mobile2/"
+           data-tag="移动端"
+           data-author="" >
+            <span class="post-title" title="移动端事件">移动端事件</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%93%8D%E4%BD%9C/Mobile3/"
+           data-tag="移动端"
+           data-author="" >
+            <span class="post-title" title="移动端屏幕适配">移动端屏幕适配</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%93%8D%E4%BD%9C/mobile1/"
+           data-tag="移动端"
+           data-author="" >
+            <span class="post-title" title="移动端适配">移动端适配</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/flex/"
+           data-tag="h5"
+           data-author="" >
+            <span class="post-title" title="flex布局">flex布局</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+        <a  class="JS "
+           href="/2020/04/02/JS/AJAX/AJAX1/"
+           data-tag="AJAX"
+           data-author="" >
+            <span class="post-title" title="数据请求">数据请求</span>
+            <span class="post-date" title="2020-04-02 11:17:24">2020/04/02</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-JS/BOM/BOM new" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">新动画函数</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="JS">JS</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color4">BOM</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-04-02 11:20:54'>2020-04-02 11:17</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#传统动画的弊端"><span class="toc-text">传统动画的弊端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#requestAnimationFrame"><span class="toc-text">requestAnimationFrame</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#语法"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#返回值"><span class="toc-text">返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数参数"><span class="toc-text">回调函数参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例子"><span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与-setInterval-对比"><span class="toc-text">与 setInterval 对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结构化动画"><span class="toc-text">结构化动画</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时序函数"><span class="toc-text">时序函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#圆弧"><span class="toc-text">圆弧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反弹：弓箭射击"><span class="toc-text">反弹：弓箭射击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#弹跳"><span class="toc-text">弹跳</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#伸缩动画"><span class="toc-text">伸缩动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逆转：ease"><span class="toc-text">逆转：ease*</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#easeOut变换"><span class="toc-text">easeOut变换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#easeInOut变换"><span class="toc-text">easeInOut变换</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="传统动画的弊端"><a href="#传统动画的弊端" class="headerlink" title="传统动画的弊端"></a>传统动画的弊端</h2><p>编写动画的关键是循环间隔的设置，一方面，循环间隔足够短，动画效果才能显得平滑流畅；另一方面，循环间隔还要足够长，才能确保浏览器有能力渲染产生的变化。</p>
+<p>大部分的电脑显示器的刷新频率是60HZ，也就是每秒钟重绘60次。大多数浏览器都会对重绘操作加以限制，不超过显示器的重绘频率，因为即使超过那个频率用户体验也不会提升。因此，最平滑动画的最佳循环间隔是 1000ms / 60 ，约为16.7ms。</p>
+<p>在实际项目中我们经常会遇到生成动画的需求，传统方法是通过使用<code>setTimeout</code>和<code>setInterval</code>进行实现，但是定时器动画有两个弊端：</p>
+<ul>
+<li>时间间隔并不好拿捏，设置太短浏览器重绘频率太快会产生性能问题，太慢的话又显得像PPT不够平滑，业界推荐的时间间隔是16.66…（大部分电脑显示器刷新频率是60Hz，1000ms/60）</li>
+<li>它们实际上只是把任务添加到了任务队列中，但是如果前面的任务还没有执行完成，它们必须要等待。 所要执行的动画就会被搁置。</li>
+</ul>
+<p>为了解决这个问题HTML5加入了<code>requestAnimationFrame</code></p>
+<p>特点如下:</p>
+<ul>
+<li><code>requestAnimationFrame</code> 不需要设置时间，采用系统时间间隔，保持最佳绘制效率，能达到最佳的动画效果。</li>
+<li><code>requestAnimationFrame</code> 会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成。</li>
+<li>当 <code>requestAnimationFrame()</code> 是由浏览器专门为动画提供的API，在运行时浏览器会自动优化方法的调用，并且如果页面不是激活状态下的话，动画会自动暂停，有效节省了CPU开销</li>
+</ul>
+<h2 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a><code>requestAnimationFrame</code></h2><p><font color="red">MDN的上的解释：</font></p>
+<blockquote>
+<p><code>window.requestAnimationFrame()</code> 方法告诉浏览器您希望执行动画并请求浏览器在下一次重绘之前调用指定的函数来更新动画。该方法使用一个回调函数作为参数，这个回调函数会在浏览器重绘之前调用。 </p>
+</blockquote>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p> <code>var requestId = requestAnimationFrame(callback);</code></p>
+<p>这会让 <code>callback</code> 函数在浏览器每次重绘的最近时间运行。</p>
+<p>多个 <code>requestAnimationFrame</code> 回调只会有一次几何重新计算和重绘，而不是多次。</p>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p> 一个整数，请求 ID ，是回调列表中唯一的标识。是个非零值，没别的意义。可以传这个值给 <code>window.cancelAnimationFrame()</code> 以取消回调函数。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取消回调的周期执行</span></span><br><span class="line">cancelAnimationFrame(requestId);</span><br></pre></td></tr></table></figure>
+
+<h3 id="回调函数参数"><a href="#回调函数参数" class="headerlink" title="回调函数参数"></a>回调函数参数</h3><p><code>callback</code> 默认得到一个参数 —— 从页面加载开始经过的毫秒数。这个时间也可通过调用 <code>performance.now()</code> 得到。</p>
+<blockquote>
+<p>注：<code>performance.now()</code> 返回一个表示从性能测量时刻开始经过的毫秒数</p>
+</blockquote>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> n = <span class="number">0</span>;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">move</span><span class="params">()</span></span>&#123;</span></span><br><span class="line">        n += 5;</span><br><span class="line"><span class="actionscript">        box.style.left = n + <span class="string">"px"</span>;</span></span><br><span class="line">        if(n &lt; 300) requestAnimationFrame(move);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="与-setInterval-对比"><a href="#与-setInterval-对比" class="headerlink" title="与 setInterval 对比"></a>与 <code>setInterval</code> 对比</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 让页面加载两秒</span></span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> old = performance.now();</span><br><span class="line">    <span class="keyword">var</span> end = <span class="literal">null</span>;</span><br><span class="line">    <span class="comment">// function fn(time)&#123;</span></span><br><span class="line">    <span class="comment">// 	console.log(time - old);</span></span><br><span class="line">    <span class="comment">// 	old = time;</span></span><br><span class="line">    <span class="comment">// 	count ++;</span></span><br><span class="line">    <span class="comment">// 	if(count === 20)&#123;</span></span><br><span class="line">    <span class="comment">// 		window.cancelAnimationFrame(end);</span></span><br><span class="line">    <span class="comment">// 		return;</span></span><br><span class="line">    <span class="comment">// 	&#125;</span></span><br><span class="line">    <span class="comment">// 	end = requestAnimationFrame(fn);</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="comment">// requestAnimationFrame(fn)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    	count ++;</span><br><span class="line">    	<span class="keyword">var</span> time = performance.now();</span><br><span class="line">    	<span class="built_in">console</span>.log(time - old);</span><br><span class="line">    	<span class="keyword">if</span>(count === <span class="number">20</span>)&#123;</span><br><span class="line">    		clearInterval(timer);</span><br><span class="line">    	&#125;</span><br><span class="line">    	old = time;</span><br><span class="line">    &#125;,<span class="number">1000</span>/<span class="number">60</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="结构化动画"><a href="#结构化动画" class="headerlink" title="结构化动画"></a>结构化动画</h2><p>使用 <code>requestAnimationFrame</code> 创建一个通用的动画函数</p>
+<p>补间动画：在固定的时间点，有固定的的位置。只需要根据运动的已过时间的百分比去计算数值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 补间动画方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123; Number &#125;</span> </span>start 开始数值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123; Number &#125;</span> </span>end   结束数值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123; Number &#125;</span> </span>time  补间时间</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123; Function &#125;</span> </span>callback 每帧的回调函数</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params">start, end, time, callback</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> startTime = performance.now(); <span class="comment">// 设置开始的时间戳</span></span><br><span class="line">	<span class="keyword">var</span> differ = end - start; <span class="comment">// 拿到数值差值</span></span><br><span class="line">	<span class="comment">// 创建每帧之前要执行的动画</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">loop</span>(<span class="params">now</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> passTime = now - startTime; <span class="comment">// 获取当前时间和开始的时间差</span></span><br><span class="line">        <span class="keyword">var</span> per = passTime / time; <span class="comment">// 计算当前已过百分比</span></span><br><span class="line">        <span class="keyword">if</span>( per &gt;= <span class="number">1</span> )&#123;  <span class="comment">// 判读如果已经执行</span></span><br><span class="line">            per = <span class="number">1</span>; <span class="comment">// 设置为最后的状态</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> pass = differ * per; <span class="comment">// 通过已过时间的百分比 * 开始结束数值差得出当前的数值</span></span><br><span class="line">        callback(pass); <span class="comment">// 调用回调函数,把数值传递进去</span></span><br><span class="line">        <span class="keyword">if</span>(per &lt; <span class="number">1</span>) requestAnimationFrame(loop) <span class="comment">//下一阵调用每帧之前要执行的函数</span></span><br><span class="line">    &#125;</span><br><span class="line">    requestAnimationFrame(loop) <span class="comment">// 下一阵调用每帧之前要执行的函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>带有时序函数的动画封装：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params">timing, draw, duration</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> start = performance.now();</span><br><span class="line">    requestAnimationFrame(<span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params">time</span>)</span>&#123;</span><br><span class="line">        <span class="comment">// timeFraction 从 0 增加到 1</span></span><br><span class="line">        <span class="keyword">var</span> timeFraction = (time - start) / duration;</span><br><span class="line">        <span class="keyword">if</span>(timeFraction &gt; <span class="number">1</span>) timeFraction = <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 计算当前动画状态</span></span><br><span class="line">        <span class="keyword">var</span> process = timing(timeFraction);</span><br><span class="line">        </span><br><span class="line">        draw(progress); <span class="comment">// 绘制</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(timeFraction &lt; <span class="number">1</span>)&#123;</span><br><span class="line">            requestAnimationFrame(animate);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><font color="green">解析：</font></p>
+<p>这里 animate 函数接受3个描述动画的基本参数：</p>
+<ul>
+<li><p><code>duration</code>  动画运行的总毫秒数。 比如 1000</p>
+</li>
+<li><p><code>timing(timeFraction)</code>  计算动画进度的函数（ 时序函数）。获取从 0 到 1 的小数时间，返回动画进度，通常也是从 0 到 1。类似 CSS 属性 transition-timing-function ，传入一个已过去的时间与总时间之比的小数（0 代表开始，1 代表结束），返回动画完成度（类似 Bezier 曲线中的 y）。</p>
+</li>
+<li><p><code>draw(process)</code>  获取动画完成状态并绘制的函数。值 <code>progress = 0</code> 表示开始动画状态，<code>process = 1</code> 表示结束状态。这是实际绘制动画的函数。例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params">process</span>)</span>&#123;</span><br><span class="line">    box.style.left = process + <span class="string">"px"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<p>与 CSS 动画不同，我们可以在这里设计任何时序函数和任何绘图函数。时序函数不受 Bezier 曲线的限制。并且 <code>draw</code> 不局限于操作 CSS 属性，还可以为类似烟花动画或其他动画创建新元素。 </p>
+<h2 id="时序函数"><a href="#时序函数" class="headerlink" title="时序函数"></a>时序函数</h2><p>简单的线性时序函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">linear</span>(<span class="params">timefractoin</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> timeFraction;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果我们想加速动画，我们可以让 <code>progress</code> 为 <code>n</code> 次幂。</p>
+<p> 例如，抛物线： </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quad</span>(<span class="params">timeFraction</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.pow(timeFraction, <span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="圆弧"><a href="#圆弧" class="headerlink" title="圆弧"></a>圆弧</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">circle</span>(<span class="params">timeFraction</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span> - <span class="built_in">Math</span>.sin(<span class="built_in">Math</span>.acos(timeFraction));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="反弹：弓箭射击"><a href="#反弹：弓箭射击" class="headerlink" title="反弹：弓箭射击"></a>反弹：弓箭射击</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">back</span>(<span class="params">x, timeFraction</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Math</span>.pow(timeFraction, <span class="number">2</span>) * ((x+<span class="number">1</span>) * timeFraction - x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="弹跳"><a href="#弹跳" class="headerlink" title="弹跳"></a>弹跳</h3><p>bounce 函数的效果类似于我们抛球后，球落下然后弹跳几次停下来，但是顺序是相反的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bounce</span>(<span class="params">timeFraction</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> a = <span class="number">0</span>,b = <span class="number">1</span>, result; <span class="number">1</span>; a += b, b/= <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(timeFraction &gt;= (<span class="number">7</span> - <span class="number">4</span> * a) / <span class="number">11</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="built_in">Math</span>.pow((<span class="number">11</span> - <span class="number">6</span> * a - <span class="number">11</span> * timeFraction) / <span class="number">4</span>, <span class="number">2</span>) + <span class="built_in">Math</span>.pow(b, <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="伸缩动画"><a href="#伸缩动画" class="headerlink" title="伸缩动画"></a>伸缩动画</h3><p>另一个“伸缩函数”接受附加参数 x 作为“初始范围”。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">elastic</span>(<span class="params">x, timeFraction</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">10</span> * (timeFraction - <span class="number">1</span>)) * <span class="built_in">Math</span>.cos(<span class="number">20</span> * <span class="built_in">Math</span>.PI * x / <span class="number">3</span> * timeFraction); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="逆转：ease"><a href="#逆转：ease" class="headerlink" title="逆转：ease*"></a>逆转：ease*</h3><p>有一组时序函数。它们的直接应用称为“easeIn”。有时我们需要以相反的顺序显示动画。这是通过“easeOut”变换完成的。</p>
+<h4 id="easeOut变换"><a href="#easeOut变换" class="headerlink" title="easeOut变换"></a>easeOut变换</h4><p>在“easeOut”模式中，我们将 <code>timing</code> 函数封装到 <code>timingEaseOut</code>中：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timingEaseOut(timeFraction) = <span class="number">1</span> - timing(<span class="number">1</span> - timeFraction);</span><br></pre></td></tr></table></figure>
+
+<p>换句话说，我们有一个“变换”函数 <code>makeEaseOut</code>，它接受一个“常规”时序函数 <code>timing</code> 并返回一个封装器，里面封装了 <code>timing</code> 函数： </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接受时序函数，返回变换后的变体</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeEaseOut</span>(<span class="params">timing</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">timeFraction</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> - timing(<span class="number">1</span> - timeFraction);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 例如，我们可以使用上面描述的 <code>bounce</code> 函数： </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bounceEaseOut = makeEaseOut(bounce);</span><br></pre></td></tr></table></figure>
+
+<p> 这样，弹跳不会在动画开始时执行，而是在动画结束时。这样看起来更好： </p>
+<ul>
+<li>常规弹跳 —— 物体在底部弹跳，然后突然跳到顶部。</li>
+<li><code>easeOut</code> 变换之后 —— 物体跳到顶部之后，在那里弹跳。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeEaseOut</span>(<span class="params">timing</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">timeFraction</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> - timing(<span class="number">1</span> - timeFraction);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bounce</span>(<span class="params">timeFraction</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> a = <span class="number">0</span>, b = <span class="number">1</span>, result; <span class="number">1</span>; a += b, b /= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (timeFraction &gt;= (<span class="number">7</span> - <span class="number">4</span> * a) / <span class="number">11</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="built_in">Math</span>.pow((<span class="number">11</span> - <span class="number">6</span> * a - <span class="number">11</span> * timeFraction) / <span class="number">4</span>, <span class="number">2</span>) + <span class="built_in">Math</span>.pow(b, <span class="number">2</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> bounceEaseOut = makeEaseOut(bounce);</span><br><span class="line"></span><br><span class="line">brick.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    animate(&#123;</span><br><span class="line">        duration: <span class="number">3000</span>,</span><br><span class="line">        timing: bounceEaseOut,</span><br><span class="line">        draw: <span class="function"><span class="keyword">function</span>(<span class="params">progress</span>) </span>&#123;</span><br><span class="line">            box.style.left = progress * <span class="number">600</span> + <span class="string">'px'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="easeInOut变换"><a href="#easeInOut变换" class="headerlink" title="easeInOut变换"></a>easeInOut变换</h4><p>我们还可以在动画的开头和结尾都显示效果。该变换称为“easeInOut”。</p>
+<p>给定时序函数，我们按下面的方式计算动画状态：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (timeFraction &lt;= <span class="number">0.5</span>) &#123; <span class="comment">// 动画前半部分</span></span><br><span class="line">  <span class="keyword">return</span> timing(<span class="number">2</span> * timeFraction) / <span class="number">2</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">// 动画后半部分</span></span><br><span class="line">  <span class="keyword">return</span> (<span class="number">2</span> - timing(<span class="number">2</span> * (<span class="number">1</span> - timeFraction))) / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>封装后：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeEaseInOut</span>(<span class="params">timing</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">timeFraction</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (timeFraction &lt; <span class="number">.5</span>)</span><br><span class="line">      <span class="keyword">return</span> timing(<span class="number">2</span> * timeFraction) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      <span class="keyword">return</span> (<span class="number">2</span> - timing(<span class="number">2</span> * (<span class="number">1</span> - timeFraction))) / <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bounceEaseInOut = makeEaseInOut(bounce);</span><br></pre></td></tr></table></figure>
+
+
+      
+    <hr> 
+    <!-- <span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span> -->
+    </div>
+</article>
+
+<!--  -->
+
+
+
+
+
+    
+
+<!-- 
+ -->
+
+    </div>
+    <div class="copyright">
+        <!-- <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+<!--  -->
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#nodejs','#es6','#数据处理','#入门','#插件','#插槽','#接口','#渲染','#vuex','#脚手架','#路由','#wepack','#框架','#返回值','#高级路由','#h5','#正则','#BOM','#AJAX','#Canvas','#js高级','#移动端',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
