@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>hello | 晓晴的博客</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="hello | 晓晴的博客">
+  <title>vant rem适配 | 晓晴的博客</title>
+  <meta name="keywords" content=" vant ">
+  <meta name="description" content="vant rem适配 | 晓晴的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="城市地址">
@@ -396,19 +396,31 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-hello" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Vue/vant Rem适配" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">hello</h1>
+        <h1 class="article-title">vant rem适配</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a  data-rel="vant">vant</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color5">vant</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-27 17:57:58'>2020-03-16 13:58</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-25 11:36:52'>2020-04-25 11:36</time>
         
     </div>
     <div class="article-meta">
@@ -430,7 +442,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#基于vue-cli3的vue项目移动端样式适配，lib-flexible和postcss-px2rem"><span class="toc-text">基于vue-cli3的vue项目移动端样式适配，lib-flexible和postcss-px2rem</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-安装-flexible和-postcss-px2rem（命令行安装）"><span class="toc-text">1.安装 flexible和 postcss-px2rem（命令行安装）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-引入lib-flexible"><span class="toc-text">2.引入lib-flexible</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-配置postcss-px2rem"><span class="toc-text">3.配置postcss-px2rem</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -446,7 +458,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>hello world</p>
+        <h5 id="基于vue-cli3的vue项目移动端样式适配，lib-flexible和postcss-px2rem"><a href="#基于vue-cli3的vue项目移动端样式适配，lib-flexible和postcss-px2rem" class="headerlink" title="基于vue-cli3的vue项目移动端样式适配，lib-flexible和postcss-px2rem"></a>基于vue-cli3的vue项目移动端样式适配，lib-flexible和postcss-px2rem</h5><h6 id="1-安装-flexible和-postcss-px2rem（命令行安装）"><a href="#1-安装-flexible和-postcss-px2rem（命令行安装）" class="headerlink" title="1.安装 flexible和 postcss-px2rem（命令行安装）"></a>1.安装 flexible和 postcss-px2rem（命令行安装）</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install lib-flexible --save</span><br><span class="line"></span><br><span class="line">npm install postcss-px2rem --save</span><br></pre></td></tr></table></figure>
+
+<p><strong>简要介绍这两个包的用途：</strong></p>
+<blockquote>
+<p>1.flexible会为页面根据屏幕自动添加<meta name='viewport' >标签，动态控制initial-scale，maximum-scale，minimum-scale等属性的值。</p>
+<p>2.postcss-px2rem会将px转换为rem，rem单位用于适配不同宽度的屏幕，根据标签的font-size值来计算出结果，1rem=html标签的font-size值。</p>
+</blockquote>
+<h6 id="2-引入lib-flexible"><a href="#2-引入lib-flexible" class="headerlink" title="2.引入lib-flexible"></a>2.引入lib-flexible</h6><ul>
+<li><strong>在项目入口文件main.js 中引入lib-flexible</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'lib-flexible'</span></span><br></pre></td></tr></table></figure>
+
+<p><code>注意事项（important）: 由于flexible会动态给页面header中添加&lt;meta name=&#39;viewport&#39; &gt;标签，所以务必请把目录 public/index.html 中的这个标签删除！！！</code></p>
+<h6 id="3-配置postcss-px2rem"><a href="#3-配置postcss-px2rem" class="headerlink" title="3.配置postcss-px2rem"></a>3.配置postcss-px2rem</h6><blockquote>
+<p>vue-cli3 构建的项目相较于vue-cli2 构建的项目精简了许多，将一些默认配置进行了更好更严密，让开发变得更高效的封装。具体请看vue-cli官网 <a href="https://cli.vuejs.org/zh/guide/" target="_blank" rel="noopener">https://cli.vuejs.org/zh/guide/</a></p>
+<p>px2rem的配置放在vue-cli3 项目中vue.config.js中（找不到？可能你是一个新构建的项目，需要手动在项目根目录创建vue.config.js）</p>
+</blockquote>
+<p>具体配置:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    css: &#123;</span><br><span class="line">        loaderOptions: &#123;</span><br><span class="line">          css: &#123;&#125;,</span><br><span class="line">          postcss: &#123;</span><br><span class="line">            plugins: [</span><br><span class="line">              <span class="built_in">require</span>(<span class="string">'postcss-px2rem'</span>)(&#123;</span><br><span class="line">                remUnit: <span class="number">37.5</span></span><br><span class="line">              &#125;)</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这里已经完成了 , 只需要重新一下项目就可以使用了</p>
 
       
     <hr> 

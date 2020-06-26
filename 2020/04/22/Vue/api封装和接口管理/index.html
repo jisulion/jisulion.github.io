@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>hello | 晓晴的博客</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="hello | 晓晴的博客">
+  <title>axios 封装和接口管理 | 晓晴的博客</title>
+  <meta name="keywords" content=" vue-elment ">
+  <meta name="description" content="axios 封装和接口管理 | 晓晴的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="城市地址">
@@ -396,19 +396,31 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-hello" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Vue/api封装和接口管理" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">hello</h1>
+        <h1 class="article-title">axios 封装和接口管理</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a  data-rel="axios">axios</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color1">vue-elment</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-27 17:57:58'>2020-03-16 13:58</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-23 21:18:14'>2020-04-22 10:50</time>
         
     </div>
     <div class="article-meta">
@@ -430,7 +442,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#封装axios-请求"><span class="toc-text">封装axios 请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建统一调用的API接口"><span class="toc-text">创建统一调用的API接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#封装API"><span class="toc-text">封装API</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#页面调取"><span class="toc-text">页面调取</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -446,7 +458,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>hello world</p>
+        <h4 id="封装axios-请求"><a href="#封装axios-请求" class="headerlink" title="封装axios 请求"></a>封装axios 请求</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>; <span class="comment">//引入axios</span></span><br><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">'qs'</span>; <span class="comment">//引入qs模块，用来序列化post类型的数据</span></span><br><span class="line"><span class="comment">//创建axios对象 </span></span><br><span class="line"><span class="keyword">let</span> service = axios.create(&#123;</span><br><span class="line">  baseURL: <span class="string">'http://127.0.0.1:3001'</span>, <span class="comment">// 请求接口的域名</span></span><br><span class="line">  timeout: <span class="number">9000</span> <span class="comment">// 请求的超时</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 添加请求拦截器,</span></span><br><span class="line">service.interceptors.request.use(</span><br><span class="line">  request =&gt; &#123;</span><br><span class="line">    <span class="comment">// 设置请求的头信息</span></span><br><span class="line">    request.headers = &#123;</span><br><span class="line">      token: <span class="string">`192.160.0.0.1`</span>, <span class="comment">// 请求添加的token</span></span><br><span class="line">      <span class="string">'Content-Type'</span>: <span class="string">'application/json;charset=utf-8'</span><span class="comment">//这里可以根据请求数据更改请求头</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> request</span><br><span class="line">  &#125;,</span><br><span class="line">  error =&gt; &#123;</span><br><span class="line">    <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"><span class="comment">// 添加响应拦截器</span></span><br><span class="line">service.interceptors.response.use(</span><br><span class="line">  response =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> response.data</span><br><span class="line">  &#125;,</span><br><span class="line">  error =&gt; &#123;</span><br><span class="line">    <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"><span class="comment">// 封装 parmas穿过来的的</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">http</span>(<span class="params">config</span>)</span>&#123; </span><br><span class="line">  <span class="comment">// axios的默认配置 如果时get 参数需要放到 params </span></span><br><span class="line">  <span class="comment">// 如果是post 参数需要放到  data </span></span><br><span class="line">  <span class="keyword">var</span> myConfig = &#123;</span><br><span class="line">    url: config.url,</span><br><span class="line">    method: config.method</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(config.method.toLowerCase() == <span class="string">'post'</span>)&#123;</span><br><span class="line">    <span class="comment">// 对数据进行序列化</span></span><br><span class="line">    <span class="comment">//  https://www.npmjs.com/package/qs</span></span><br><span class="line">    <span class="comment">// qs.stringify(&#123; a: &#123; b: &#123; c: 'd', e: 'f' &#125; &#125; &#125;, &#123; allowDots: true &#125;);  ===&gt;  'a.b.c=d&amp;a.b.e=f'</span></span><br><span class="line">    myConfig.data = qs.stringify(config.params, &#123; <span class="attr">allowDots</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"></span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(config.method.toLowerCase() == <span class="string">'get'</span>)&#123;</span><br><span class="line">    myConfig.params = config.params;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 区分了get和post 的配置 </span></span><br><span class="line">  <span class="keyword">return</span> service(myConfig);</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> http</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建统一调用的API接口"><a href="#创建统一调用的API接口" class="headerlink" title="创建统一调用的API接口"></a>创建统一调用的API接口</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  exhibitionHotUrl: <span class="string">'www.bufantec.com'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="封装API"><a href="#封装API" class="headerlink" title="封装API"></a>封装API</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requset <span class="keyword">from</span> <span class="string">'../utils/request'</span></span><br><span class="line"><span class="keyword">import</span> apiUrl <span class="keyword">from</span> <span class="string">'../utils/apiUrl'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getData(params):&#123;</span><br><span class="line">  <span class="keyword">return</span> requset(&#123;</span><br><span class="line">    url: apiUrl.exhibitionHotUrl,</span><br><span class="line">    method: <span class="string">'get'</span>,</span><br><span class="line">    params</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="页面调取"><a href="#页面调取" class="headerlink" title="页面调取"></a>页面调取</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取</span></span><br><span class="line"><span class="keyword">import</span> &#123;getData&#125; <span class="keyword">from</span> <span class="string">'../../api/index'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> getExhibitionHotList()&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// await 调用</span></span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> getData(&#123;</span><br><span class="line">  可以在这里写需要传递的参数</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">if</span> (result.code === <span class="number">200</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">    <span class="comment">//成功数据赋值</span></span><br><span class="line">      Data: result.data.list</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     <hr> 

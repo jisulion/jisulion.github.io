@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>hello | 晓晴的博客</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="hello | 晓晴的博客">
+  <title>axios 请求实例 | 晓晴的博客</title>
+  <meta name="keywords" content=" axios ">
+  <meta name="description" content="axios 请求实例 | 晓晴的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="城市地址">
@@ -396,19 +396,31 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-hello" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Vue/axios实例" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">hello</h1>
+        <h1 class="article-title">axios 请求实例</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a  data-rel="axios">axios</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color1">axios</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-27 17:57:58'>2020-03-16 13:58</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-02 15:56:33'>2020-03-31 16:37</time>
         
     </div>
     <div class="article-meta">
@@ -446,7 +458,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>hello world</p>
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">"axios"</span>;</span><br><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">"qs"</span>;</span><br><span class="line"><span class="keyword">var</span> instance = axios.create(&#123;</span><br><span class="line">  baseURL: <span class="string">'&#123;host&#125;'</span>,</span><br><span class="line">  timeout:<span class="number">5000</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// axios.defaults.baseURL = "http://59.110.138.169";</span></span><br><span class="line"><span class="comment">// axios.defaults.timeout = 5000;</span></span><br><span class="line"><span class="comment">// 在请求当中附带传递的信息 headers。common用于服务器判断用户</span></span><br><span class="line"><span class="comment">// axios.defaults.headers.common['token'] = token</span></span><br><span class="line">instance.interceptors.request.use(<span class="function"><span class="keyword">function</span> (<span class="params">config</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(config.method.toLowerCase() == <span class="string">"post"</span>)&#123;</span><br><span class="line">      config.data = qs.stringify(config.data);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 对请求失败做处理</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">instance.interceptors.response.use(<span class="function"><span class="keyword">function</span> (<span class="params">config</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 对返回过来的数据进行过滤操作</span></span><br><span class="line">    <span class="keyword">return</span> config.data;</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> instance;</span><br></pre></td></tr></table></figure>
+
+
+
+
 
       
     <hr> 

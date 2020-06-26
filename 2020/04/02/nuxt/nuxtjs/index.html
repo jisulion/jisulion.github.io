@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>hello | 晓晴的博客</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="hello | 晓晴的博客">
+  <title>nuxt.js中间件实现拦截权限判断 | 晓晴的博客</title>
+  <meta name="keywords" content=" nuxt ">
+  <meta name="description" content="nuxt.js中间件实现拦截权限判断 | 晓晴的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="城市地址">
@@ -396,19 +396,31 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-hello" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-nuxt/nuxtjs" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">hello</h1>
+        <h1 class="article-title">nuxt.js中间件实现拦截权限判断</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a  data-rel="NUXT">NUXT</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color5">nuxt</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-27 17:57:58'>2020-03-16 13:58</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-03 21:07:34'>2020-04-02 21:17</time>
         
     </div>
     <div class="article-meta">
@@ -430,7 +442,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#一：首先登录页面"><span class="toc-text">一：首先登录页面</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在登录页面script中引入"><span class="toc-text">在登录页面script中引入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二-nuxt中间件middleware编写权限拦截"><span class="toc-text">二:nuxt中间件middleware编写权限拦截</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三：运用到项目中"><span class="toc-text">三：运用到项目中</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -446,7 +458,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>hello world</p>
+        <p>项目环境</p>
+<p>“element-ui”:”^2.3.4”,</p>
+<p>“flyio”:”^0.5.2”,</p>
+<p>“js-cookie”:”^2.2.0”,</p>
+<p>“nuxt”:”^1.4.0”,</p>
+<h5 id="一：首先登录页面"><a href="#一：首先登录页面" class="headerlink" title="一：首先登录页面"></a>一：首先登录页面</h5><h5 id="在登录页面script中引入"><a href="#在登录页面script中引入" class="headerlink" title="在登录页面script中引入"></a><strong>在登录页面script中引入</strong></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Cookie <span class="keyword">from</span> <span class="string">'js-cookie'</span> <span class="comment">//npm install js-cookie --save</span></span><br></pre></td></tr></table></figure>
+
+<p>在script里加上</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">   <span class="keyword">return</span>&#123;</span><br><span class="line">     redirectURL:<span class="string">'/'</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;,</span><br><span class="line">mounted() &#123;</span><br><span class="line">      <span class="keyword">let</span> rediretUrl = <span class="keyword">this</span>.$route.query.ref;</span><br><span class="line">      <span class="keyword">if</span> (rediretUrl)&#123;</span><br><span class="line">        <span class="keyword">this</span>.redirectURL = rediretUrl</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<p>接着在methods里面编写一个 submitLogin的方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">submitLogin(ev) &#123;</span><br><span class="line">        <span class="keyword">var</span> _this = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">this</span>.$refs.ruleForm2.validate(<span class="function">(<span class="params">valid</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (valid) &#123;</span><br><span class="line">            _this.logining = <span class="literal">true</span></span><br><span class="line">            <span class="keyword">var</span> sendData = &#123;</span><br><span class="line">              username: _this.ruleForm2.account,</span><br><span class="line">              password: _this.ruleForm2.pass,</span><br><span class="line">              is_remember: _this.isRemember</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="comment">//登录操作</span></span><br><span class="line">            _this.$https.post(<span class="string">'login/index'</span>, sendData).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">              <span class="keyword">if</span> (res.status == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="comment">//将服务端的token存入cookie当中</span></span><br><span class="line">                Cookie.set(<span class="string">'token'</span>, res.data.token)</span><br><span class="line">               <span class="comment">//返回上一页</span></span><br><span class="line">               _this.$router.push(_this.redirectURL)</span><br><span class="line">              &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                _this.$message.warning(res.msg)</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="二-nuxt中间件middleware编写权限拦截"><a href="#二-nuxt中间件middleware编写权限拦截" class="headerlink" title="二:nuxt中间件middleware编写权限拦截"></a>二:nuxt中间件middleware编写权限拦截</h5><p>新建一个userAuth.js，目录结构如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> utils <span class="keyword">from</span> <span class="string">'~/utils/utils'</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> (<span class="params">&#123;route, req, res, redirect&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//或者 下面可以查看一下 export default function (context)&#123;</span></span><br><span class="line">    <span class="comment">// context  上下文信息  包含了客户端的信息和服务端的信息</span></span><br><span class="line">    <span class="comment">//获取路由的一些信息</span></span><br><span class="line">    <span class="comment">// console.log(context)</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">  <span class="comment">//route  当前路由配置</span></span><br><span class="line">  <span class="comment">// redirect 通过这个重新定向到某个页面</span></span><br><span class="line">  <span class="comment">//window localstorage sessionstorage 在这里获取不了</span></span><br><span class="line">  <span class="keyword">let</span> isClient = process.client;</span><br><span class="line">  <span class="keyword">let</span> isServer = process.server;</span><br><span class="line">  <span class="comment">// let redirectURL = '/login';</span></span><br><span class="line">  <span class="keyword">var</span> token, path</span><br><span class="line">  <span class="comment">//在服务端</span></span><br><span class="line">  <span class="keyword">if</span> (isServer) &#123;</span><br><span class="line">    <span class="keyword">let</span> cookies = utils.getcookiesInServer(req)</span><br><span class="line">    path = req.originalUrl;</span><br><span class="line">    token = cookies.token ? cookies.token : <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//在客户端判读是否需要登陆</span></span><br><span class="line">  <span class="comment">//nuxt在服务端坏境获取不到window localstorage sessionstorage </span></span><br><span class="line">  <span class="keyword">if</span> (isClient) &#123;</span><br><span class="line">    token = utils.getcookiesInClient(<span class="string">'token'</span>)</span><br><span class="line">    path = route.path;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (path) &#123;</span><br><span class="line">    redirectURL = <span class="string">'/login?ref='</span> + <span class="built_in">encodeURIComponent</span>(path)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//需要进行权限判断的页面开头</span></span><br><span class="line">  <span class="keyword">if</span> (!token) &#123;</span><br><span class="line">       redirect(redirectURL)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// if(route.paht =="/user")&#123;</span></span><br><span class="line">  <span class="comment">//   if(token)&#123;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//   &#125;else&#123;</span></span><br><span class="line">  <span class="comment">//     redicrect("/login")</span></span><br><span class="line">  <span class="comment">//   &#125;</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>utils.js里面的方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Cookie <span class="keyword">from</span> <span class="string">'js-cookie'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">//获取服务端cookie</span></span><br><span class="line">  getcookiesInServer:<span class="function"><span class="keyword">function</span> (<span class="params">req</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> service_cookie = &#123;&#125;;</span><br><span class="line">    req &amp;&amp; req.headers.cookie &amp;&amp; req.headers.cookie.split(<span class="string">';'</span>).forEach(<span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">let</span> parts = val.split(<span class="string">'='</span>);</span><br><span class="line">      service_cookie[parts[<span class="number">0</span>].trim()] = (parts[<span class="number">1</span>] || <span class="string">''</span>).trim();</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> service_cookie;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//获取客户端cookie</span></span><br><span class="line">  getcookiesInClient:<span class="function"><span class="keyword">function</span> (<span class="params">key</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Cookie.get(key) ? Cookie.get(key) : <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>到这里，我们的中间件，权限判断依据完成了</p>
+<h5 id="三：运用到项目中"><a href="#三：运用到项目中" class="headerlink" title="三：运用到项目中"></a>三：运用到项目中</h5><p>在项目中。例如，用户信息设置页面，需要进行是否登录判断</p>
+<hr>
+<p>pages/user/setting.vue</p>
+<hr>
+<p>我们在页面中运用刚刚编写的userAuth中间。</p>
+<blockquote>
+<p>middleware: ‘userAuth’,</p>
+</blockquote>
+<p>运用事例图如下：</p>
+<p><img src="https://pic2.zhimg.com/80/v2-f1a40dbdb2b99fabd7e9d21ae7eab586_hd.jpg" alt=""></p>
+<p>如需要 要在nuxt.config.js中router 中执行中间件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// font 在每次渲染之前先执行userAuth.js</span></span><br><span class="line">router:&#123;</span><br><span class="line">  middleware: <span class="string">"userAuth"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在</p>
+<p>setting页面就有权限判断了</p>
+<p>基于nuxt.js渲染的 ssr 网站可以愉快的运行起来了。</p>
+<hr>
+<p>版权声明：本文为CSDN博主「雨沐枫」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/umufeng/java/article/details/80524766" target="_blank" rel="noopener">https://blog.csdn.net/umufeng/java/article/details/80524766</a></p>
 
       
     <hr> 

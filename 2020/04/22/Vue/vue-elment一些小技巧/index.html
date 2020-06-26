@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>hello | 晓晴的博客</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="hello | 晓晴的博客">
+  <title>一些用vue-element-admin的坑和小技巧 | 晓晴的博客</title>
+  <meta name="keywords" content=" vue-elment ">
+  <meta name="description" content="一些用vue-element-admin的坑和小技巧 | 晓晴的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="城市地址">
@@ -396,19 +396,31 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-hello" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Vue/vue-elment一些小技巧" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">hello</h1>
+        <h1 class="article-title">一些用vue-element-admin的坑和小技巧</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a  data-rel="中后台">中后台</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color1">vue-elment</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-27 17:57:58'>2020-03-16 13:58</time>
+        创建时间:<time class="date" title='更新时间: 2020-05-15 11:13:01'>2020-04-22 10:50</time>
         
     </div>
     <div class="article-meta">
@@ -430,7 +442,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-this-options-data-key"><span class="toc-text">1.this.$options.data()[key]</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-照片上传不经过axios但需要带Token"><span class="toc-text">2.照片上传不经过axios但需要带Token</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-使用element的-lt-el-image-gt-的小BUG"><span class="toc-text">3.使用element的 &lt;el-image&gt;的小BUG</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-富文本的小BUG"><span class="toc-text">4.富文本的小BUG</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-elment中的markdown"><span class="toc-text">5.elment中的markdown</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-element-ui中的表格居中"><span class="toc-text">6  element-ui中的表格居中</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-常用的this-confirm"><span class="toc-text">7.常用的this.$confirm</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -446,7 +458,53 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>hello world</p>
+        <h5 id="1-this-options-data-key"><a href="#1-this-options-data-key" class="headerlink" title="1.this.$options.data()[key]"></a><em>1.this.$options.data()[key]</em></h5><ul>
+<li>可以保存初始化对象数据</li>
+</ul>
+<p>可以先在 utils/index 封装</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">restDate</span>(<span class="params">vm,key</span>)</span>&#123;</span><br><span class="line"> vm[key] = vm.$options.data()[key]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;restDate&#125; <span class="keyword">from</span> <span class="string">"@/utils/index"</span></span><br><span class="line"></span><br><span class="line">methods:&#123;</span><br><span class="line">    edit()&#123;</span><br><span class="line">        <span class="comment">//需要初始化的数据data</span></span><br><span class="line">	restDate(<span class="keyword">this</span>,<span class="string">"data"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或者你可以直接使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line">    edit()&#123;</span><br><span class="line">	<span class="keyword">this</span>.data = <span class="keyword">this</span>.$options.data().data</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-照片上传不经过axios但需要带Token"><a href="#2-照片上传不经过axios但需要带Token" class="headerlink" title="2.照片上传不经过axios但需要带Token"></a>2.照片上传不经过axios但需要带Token</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">el-upload</span></span></span><br><span class="line"><span class="tag">     <span class="attr">:headers</span>=<span class="string">"token"</span></span></span><br><span class="line"><span class="tag">     <span class="attr">action</span>=<span class="string">"http://localhost/admin/xy/upload/uploadImg"</span></span></span><br><span class="line"><span class="tag"><span class="attr">:on-success</span>=<span class="string">"handleSuccess"</span></span></span><br><span class="line"><span class="tag">   &gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        token:<span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">	create()&#123;</span><br><span class="line">	 <span class="keyword">this</span>.token = &#123;</span><br><span class="line">         </span><br><span class="line">      <span class="string">"token"</span>: token()</span><br><span class="line">    	&#125;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-使用element的-lt-el-image-gt-的小BUG"><a href="#3-使用element的-lt-el-image-gt-的小BUG" class="headerlink" title="3.使用element的 &lt;el-image&gt;的小BUG"></a>3.使用element的 <code>&lt;el-image&gt;</code>的小BUG</h5><ul>
+<li>在弹出中点击照片在确定的时候 页面会出现卡顿 </li>
+<li>必要时先使用原生<code>&lt;image&gt;</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在关闭的时候加上</span><br><span class="line">handleClose()&#123;</span><br><span class="line">    <span class="built_in">document</span>.body.style.overflow = <span class="string">"auto"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-富文本的小BUG"><a href="#4-富文本的小BUG" class="headerlink" title="4.富文本的小BUG"></a>4.富文本的小BUG</h5><ul>
+<li>没有返回值</li>
+</ul>
+<p>需要在组件中Tinymce/index中找到getContent() 加上return</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getContent() &#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="built_in">window</span>.tinymce.get(<span class="keyword">this</span>.tinymceId).getContent()</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-elment中的markdown"><a href="#5-elment中的markdown" class="headerlink" title="5.elment中的markdown"></a>5.elment中的markdown</h5><ul>
+<li><p>使用时需要安装 tui-ditor的插件</p>
+</li>
+<li><p>会出现左边编辑变得很窄</p>
+</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.markdown</span> &#123;</span><br><span class="line">    <span class="comment">//使用样式穿透选择作用选择器</span></span><br><span class="line">    ::v-deep .tui-ditor .te-preview-style-vertical .te-md-splitter&#123;</span><br><span class="line">        width:<span class="number">100%</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="6-element-ui中的表格居中"><a href="#6-element-ui中的表格居中" class="headerlink" title="6  element-ui中的表格居中"></a>6  element-ui中的表格居中</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在 <span class="tag">&lt;<span class="name">el-table</span> <span class="attr">:cell-style</span>=<span class="string">"cellStyle"</span> <span class="attr">:header-cell-style</span>=<span class="string">"rowClass"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-table</span>&gt;</span> 绑定这个属性</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rowClass(&#123; row, rowIndex &#125;) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"text-align:center"</span>;</span><br><span class="line"> &#125;,</span><br><span class="line">cellStyle(&#123; row, column, rowIndex, columnIndex &#125;) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"text-align:center"</span>;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="7-常用的this-confirm"><a href="#7-常用的this-confirm" class="headerlink" title="7.常用的this.$confirm"></a>7.常用的this.$confirm</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$confirm(<span class="string">'将删除该用户, 是否确定?'</span>, <span class="string">'提示'</span>, &#123;</span><br><span class="line">   confirmButtonText: <span class="string">'确定'</span>,</span><br><span class="line">   cancelButtonText: <span class="string">'取消'</span>,</span><br><span class="line">   type: <span class="string">'warning'</span></span><br><span class="line"> &#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="number">111</span>);</span><br><span class="line"> &#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">this</span>.$message(&#123;</span><br><span class="line">     type: <span class="string">'info'</span>,</span><br><span class="line">     message: <span class="string">'已取消删除'</span></span><br><span class="line">   &#125;);</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>可以根据elment-ui一起使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$message(&#123;</span><br><span class="line">          message: <span class="string">'确定删除该用户？'</span>,</span><br><span class="line">          type: <span class="string">'warning'</span></span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
 
       
     <hr> 

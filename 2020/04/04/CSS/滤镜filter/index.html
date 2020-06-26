@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>hello | 晓晴的博客</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="hello | 晓晴的博客">
+  <title>滤镜 | 晓晴的博客</title>
+  <meta name="keywords" content=" filter ">
+  <meta name="description" content="滤镜 | 晓晴的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="城市地址">
@@ -396,19 +396,31 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-hello" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-CSS/滤镜filter" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">hello</h1>
+        <h1 class="article-title">滤镜</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a  data-rel="css">css</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color2">filter</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-27 17:57:58'>2020-03-16 13:58</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-08 15:27:29'>2020-04-04 14:24</time>
         
     </div>
     <div class="article-meta">
@@ -430,7 +442,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#css3中filter的各种特效"><span class="toc-text">css3中filter的各种特效</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#模糊滤镜-blur-px"><span class="toc-text">模糊滤镜 blur(px)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#亮度brightness"><span class="toc-text">亮度brightness(%)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#对比度contrast"><span class="toc-text">对比度contrast(%)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#灰度-grayscale"><span class="toc-text">灰度 grayscale(%)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#色相旋转hue-rotate-deg"><span class="toc-text">色相旋转hue-rotate(deg)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#反转图像invert"><span class="toc-text">反转图像invert(%)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#opacity"><span class="toc-text">opacity(%)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#饱和度saturate"><span class="toc-text">饱和度saturate(%)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#sepia"><span class="toc-text">sepia</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#投影drop-shadow-x偏移-y偏移-模糊范围-颜色"><span class="toc-text">投影drop-shadow(x偏移 y偏移  模糊范围  颜色)</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -446,7 +458,92 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>hello world</p>
+        <h5 id="css3中filter的各种特效"><a href="#css3中filter的各种特效" class="headerlink" title="css3中filter的各种特效"></a>css3中filter的各种特效</h5><p>现在规范中支持的效果有：</p>
+<ul>
+<li>grayscale 灰度          值为0-1之间的小数 </li>
+<li>sepia 褐色　　　　　　   值为0-1之间的小数</li>
+<li>saturate 饱和度　　　　  值为num</li>
+<li>hue-rotate 色相旋转　　  值为angle</li>
+<li>invert 反色　　　　　　  值为0-1之间的小数</li>
+<li>opacity 透明度　　　　　 值为0-1之间的小数</li>
+<li>brightness 亮度　　　　  值为0-1之间的小数</li>
+<li>contrast 对比度　　　　  值为num</li>
+<li>blur 模糊　　　　　　     值为length</li>
+<li>drop-shadow 阴影           x偏移 y偏移  模糊范围  颜色</li>
+</ul>
+<h6 id="模糊滤镜-blur-px"><a href="#模糊滤镜-blur-px" class="headerlink" title="模糊滤镜 blur(px)"></a>模糊滤镜 blur(px)</h6><ul>
+<li>给图像设置高斯模糊。”radius”一值设定高斯函数的标准差，或者是屏幕上以多少像素融在一起， 所以值越大越模糊。</li>
+<li>如果没有设定值，则默认是0；这个参数可设置css长度值，但不接受百分比值。</li>
+<li>不过，blur模糊的缺点是边缘也会模糊不清。不过，在实际的应用中，会给图像添加一个box，超出范围隐藏。</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20180819224427241?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjcwMzIzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="blur图片效果"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.blur1</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">0.4px</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="selector-class">.blur3</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">4px</span>);</span><br></pre></td></tr></table></figure>
+<h6 id="亮度brightness"><a href="#亮度brightness" class="headerlink" title="亮度brightness(%)"></a>亮度brightness(%)</h6><ul>
+<li>给图片应用一种线性乘法，使其看起来更亮或更暗。如果值是0%，图像会全黑。值是100%，则图像无变化。其他的值对应线性乘数效果。值超过100%也是可以的，图像会比原来更亮。如果没有设定值，默认是1。</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/2018081922501334?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjcwMzIzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="brightness显示效果"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.brightness1</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">brightness</span>(<span class="number">0.30</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.brightness3</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">brightness</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="对比度contrast"><a href="#对比度contrast" class="headerlink" title="对比度contrast(%)"></a>对比度contrast(%)</h6><ul>
+<li>调整图像的对比度。值是0%的话，图像会全黑。值是100%，图像不变。值可以超过100%，意味着会运用更低的对比。若没有设置值，默认是1。</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20180819225348692?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjcwMzIzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="contrast"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.contrast</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">contrast</span>(<span class="number">100%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="灰度-grayscale"><a href="#灰度-grayscale" class="headerlink" title="灰度 grayscale(%)"></a>灰度 grayscale(%)</h6><ul>
+<li>将图像转换为灰度图像。值定义转换的比例。值为100%则完全转为灰度图像，值为0%图像无变化。值在0%到100%之间，则是效果的线性乘子。若未设置，值默认是0；</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20180819230125691?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjcwMzIzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="graycale"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">grayscale3</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">grayscale</span>(<span class="number">100%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="色相旋转hue-rotate-deg"><a href="#色相旋转hue-rotate-deg" class="headerlink" title="色相旋转hue-rotate(deg)"></a>色相旋转hue-rotate(deg)</h6><ul>
+<li>给图像应用色相旋转。”angle”一值设定图像会被调整的色环角度值。值为0deg，则图像无变化。若值未设置，默认值是0deg。该值虽然没有最大值，超过360deg的值相当于又绕一圈。</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20180819230849815?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjcwMzIzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="效果图"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.huerotate</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">hue-rotate</span>(<span class="number">180deg</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="反转图像invert"><a href="#反转图像invert" class="headerlink" title="反转图像invert(%)"></a>反转图像invert(%)</h6><ul>
+<li>反转输入图像。值定义转换的比例。100%的价值是完全反转。值为0%则图像无变化。值在0%和100%之间，则是效果的线性乘子。 若值未设置，值默认是0</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20180819231239186?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjcwMzIzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.invert &#123;</span><br><span class="line">  filter: invert(20%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="opacity"><a href="#opacity" class="headerlink" title="opacity(%)"></a>opacity(%)</h6><ul>
+<li>转化图像的透明程度。值定义转换的比例。值为0%则是完全透明，值为100%则图像无变化。值在0%和100%之间，则是效果的线性乘子，也相当于图像样本乘以数量。 若值未设置，值默认是1。该函数与已有的opacity属性很相似，不同之处在于通过filter，一些浏览器为了提升性能会提供硬件加速。</li>
+</ul>
+<p><img src="https://image-static.segmentfault.com/450/945/450945833-5bc531f6e427f_articlex" alt="opacity"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.opacity1 &#123;</span><br><span class="line">  filter: opacity(10%);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">.opacity2 &#123;</span><br><span class="line">  filter: opacity(80%);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">.opacity3 &#123;</span><br><span class="line">  filter: opacity(100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="饱和度saturate"><a href="#饱和度saturate" class="headerlink" title="饱和度saturate(%)"></a>饱和度saturate(%)</h6><ul>
+<li>转换图像饱和度。值定义转换的比例。值为0%则是完全不饱和，值为100%则图像无变化。其他值，则是效果的线性乘子。超过100%的值是允许的，则有更高的饱和度。 若值未设置，值默认是1。</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20180819231721657?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjcwMzIzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="saturate"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.saturate2 &#123;</span><br><span class="line">  filter: saturate(0.6);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">.saturate3 &#123;</span><br><span class="line">  filter: saturate(1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="sepia"><a href="#sepia" class="headerlink" title="sepia"></a>sepia</h6><ul>
+<li>将图像转换为深褐色。值定义转换的比例。值为100%则完全是深褐色的，值为0%图像无变化。值在0%到100%之间，则是效果的线性乘子。若未设置，值默认是0；</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20180819231930621?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjcwMzIzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="sepia"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.sepia1 &#123;</span><br><span class="line">  filter: sepia(10%);</span><br><span class="line">&#125;</span><br><span class="line">.sepia3 &#123;</span><br><span class="line">  filter: sepia(100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以结合几个滤镜效果结合使用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.sepia3 &#123;</span><br><span class="line">  filter:invert(100%) sepia(100%) saturate(300%) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdn.net/20180819232214281?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjcwMzIzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<h6 id="投影drop-shadow-x偏移-y偏移-模糊范围-颜色"><a href="#投影drop-shadow-x偏移-y偏移-模糊范围-颜色" class="headerlink" title="投影drop-shadow(x偏移 y偏移  模糊范围  颜色)"></a>投影drop-shadow(x偏移 y偏移  模糊范围  颜色)</h6><ul>
+<li>给图像设置一个阴影效果。阴影是合成在图像下面，可以有模糊度的，可以以特定颜色画出的遮罩图的偏移版本。 函数接受<shadow>(在CSS3背景中定义)类型的值，除了”inset”关键字是不允许的。该函数与已有的box-shadow box-shadow属性很相似；不同之处在于，通过滤镜，一些浏览器为了更好的性能会提供硬件加速。</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20180819225816318?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjcwMzIzOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.shadow1 &#123;</span><br><span class="line">  filter: drop-shadow(2px 2px 2px red);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.shadow3 &#123;</span><br><span class="line">  filter:drop-shadow(2px 10px 0 rgba(255,0,0,0.5));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     <hr> 
